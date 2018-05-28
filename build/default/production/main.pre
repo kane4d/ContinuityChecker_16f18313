@@ -6788,6 +6788,15 @@ typedef unsigned char bool;
 # 108 "mcc_generated_files/interrupt_manager.h"
 void interrupt INTERRUPT_InterruptManager(void);
 
+# 91 "mcc_generated_files/cmp1.h"
+void CMP1_Initialize(void);
+
+# 131
+bool CMP1_GetOutputStatus(void);
+
+# 147
+void CMP1_ISR(void);
+
 # 92 "mcc_generated_files/fvr.h"
 void FVR_Initialize(void);
 
@@ -6806,14 +6815,23 @@ void DAC1_Initialize(void);
 # 128
 void DAC1_SetOutput(uint8_t inputData);
 
-# 91 "mcc_generated_files/cmp1.h"
-void CMP1_Initialize(void);
+# 98 "mcc_generated_files/memory.h"
+uint16_t FLASH_ReadWord(uint16_t flashAddr);
 
-# 131
-bool CMP1_GetOutputStatus(void);
+# 127
+void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
 
-# 147
-void CMP1_ISR(void);
+# 163
+int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
+
+# 188
+void FLASH_EraseBlock(uint16_t startAddr);
+
+# 221
+void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData);
+
+# 247
+uint8_t DATAEE_ReadByte(uint16_t bAdd);
 
 # 71 "mcc_generated_files/adc.h"
 typedef uint16_t adc_result_t;
@@ -6871,16 +6889,16 @@ void DSM_ModulationStart (void);
 # 216
 void DSM_ModulationStop (void);
 
-# 74 "mcc_generated_files/mcc.h"
+# 75 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 87
+# 88
 void OSCILLATOR_Initialize(void);
 
-# 100
+# 101
 void WDT_Initialize(void);
 
-# 112
+# 113
 void PMD_Initialize(void);
 
 # 103 "nco_melody.h"
@@ -7036,23 +7054,24 @@ adc_result_t dacVal;
 uint16_t ttl;
 } probe;
 
-# 75
+# 79
 void main(void) {
 
 SYSTEM_Initialize();
 
-# 83
-(INTCONbits.GIE = 1);
-
-
-(INTCONbits.PEIE = 1);
+{PIE2bits.C1IE = 0;};
 
 # 94
+(INTCONbits.PEIE = 1);
+
+# 102
 do { LATAbits.LATA0 = 0; } while(0);
 do { LATAbits.LATA1 = 0; } while(0);
 
-do { LATAbits.LATA5 = 0; } while(0);
+# 111
+{do { ODCONAbits.ODCA5 = 1; } while(0);do { LATAbits.LATA5 = 1; } while(0);};
 DAC1_SetOutput(8);
+
 
 
 while (!FVR_IsOutputReady()) {
@@ -7060,6 +7079,7 @@ __nop();
 __nop();
 __nop();
 }
+
 
 probe.dacVal = ADC_GetConversion(channel_DAC1);
 if (probe.dacVal > (600u)) {
@@ -7072,13 +7092,64 @@ playMelody(melodyData_lowBatt, ( sizeof(melodyData_lowBatt) / sizeof(melodyData_
 
 playMelody(melodyData_sleep, ( sizeof(melodyData_sleep) / sizeof(melodyData_sleep[0]) ) );;
 
-# 137
+# 158
+PMD0bits.FVRMD = 1;
+
+
+PMD1bits.TMR0MD = PMD1bits.TMR1MD = PMD1bits.TMR2MD = 1;
+PMD1bits.NCOMD = 1;
+
+
+
+PMD2bits.CMP1MD = 0;　
+PMD2bits.ADCMD = 1;
+
+
+PMD3bits.CCP2MD = PMD3bits.CCP1MD = 1;
+PMD3bits.PWM6MD = PMD3bits.PWM5MD = 1;
+PMD3bits.CWG1MD = 1;
+
+
+PMD4bits.MSSP1MD = PMD4bits.UART1MD = 1;
+
+
+PMD5bits.DSMMD = 1;
+PMD5bits.CLC1MD = PMD5bits.CLC2MD = 1;
+
+
+{DAC1_SetOutput(1);_delay((unsigned long)((10)*(1000000/4000000.0)));PIR2bits.C1IF = 0;PIE2bits.C1IE = 1;};
+
+
+VREGCONbits.VREGPM = 1;
 asm("sleep");
 __nop();
+
+SYSTEM_Initialize();
+
+{PIE2bits.C1IE = 0;};
+
+
 playMelody_pc98_pipo();
-do { LATAbits.LATA5 = 1; } while(0);
+
+
+{do { ODCONAbits.ODCA5 = 0; } while(0); do { LATAbits.LATA5 = 1; } while(0);};
+
+
+
+while (!FVR_IsOutputReady()) {
+__nop();
+__nop();
+__nop();
+}
+
 while (1) {
 DSM_ManualModulationClear();;
+if (CMP1_GetOutputStatus())
+{
+VREGCONbits.VREGPM = 0;
+asm("sleep");
+__nop();
+}
 probe.val = ADC_GetConversion(probePin);
 switch (probe.val ) {
 case 0:

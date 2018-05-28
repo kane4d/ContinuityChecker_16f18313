@@ -5128,12 +5128,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;cmp1.c: 64: PIE2bits.C1IE = 0;
 "64
 [e = . . _PIE2bits 0 3 -> -> 0 `i `uc ]
-[; ;cmp1.c: 67: CM1CON0 = 0x84;
+[; ;cmp1.c: 67: CM1CON0 = 0x80;
 "67
-[e = _CM1CON0 -> -> 132 `i `uc ]
-[; ;cmp1.c: 70: CM1CON1 = 0xE9;
+[e = _CM1CON0 -> -> 128 `i `uc ]
+[; ;cmp1.c: 70: CM1CON1 = 0x69;
 "70
-[e = _CM1CON1 -> -> 233 `i `uc ]
+[e = _CM1CON1 -> -> 105 `i `uc ]
 [; ;cmp1.c: 73: PIR2bits.C1IF = 0;
 "73
 [e = . . _PIR2bits 0 3 -> -> 0 `i `uc ]

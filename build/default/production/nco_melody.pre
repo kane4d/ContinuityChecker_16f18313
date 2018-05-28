@@ -6788,6 +6788,15 @@ typedef unsigned char bool;
 # 108 "mcc_generated_files/interrupt_manager.h"
 void interrupt INTERRUPT_InterruptManager(void);
 
+# 91 "mcc_generated_files/cmp1.h"
+void CMP1_Initialize(void);
+
+# 131
+bool CMP1_GetOutputStatus(void);
+
+# 147
+void CMP1_ISR(void);
+
 # 92 "mcc_generated_files/fvr.h"
 void FVR_Initialize(void);
 
@@ -6806,14 +6815,23 @@ void DAC1_Initialize(void);
 # 128
 void DAC1_SetOutput(uint8_t inputData);
 
-# 91 "mcc_generated_files/cmp1.h"
-void CMP1_Initialize(void);
+# 98 "mcc_generated_files/memory.h"
+uint16_t FLASH_ReadWord(uint16_t flashAddr);
 
-# 131
-bool CMP1_GetOutputStatus(void);
+# 127
+void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
 
-# 147
-void CMP1_ISR(void);
+# 163
+int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
+
+# 188
+void FLASH_EraseBlock(uint16_t startAddr);
+
+# 221
+void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData);
+
+# 247
+uint8_t DATAEE_ReadByte(uint16_t bAdd);
 
 # 71 "mcc_generated_files/adc.h"
 typedef uint16_t adc_result_t;
@@ -6871,16 +6889,16 @@ void DSM_ModulationStart (void);
 # 216
 void DSM_ModulationStop (void);
 
-# 74 "mcc_generated_files/mcc.h"
+# 75 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 87
+# 88
 void OSCILLATOR_Initialize(void);
 
-# 100
+# 101
 void WDT_Initialize(void);
 
-# 112
+# 113
 void PMD_Initialize(void);
 
 # 103 "nco_melody.h"

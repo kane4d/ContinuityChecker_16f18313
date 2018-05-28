@@ -88,7 +88,7 @@ void PIN_MANAGER_Initialize(void)
     IOCANbits.IOCAN3 = 1;
     // interrupt on change for group IOCAP - positive
     IOCAPbits.IOCAP3 = 0;
-    
+
     // register default IOC callback functions at runtime; use these methods to register a custom function
     IOCAF3_SetInterruptHandler(IOCAF3_DefaultInterruptHandler);
    

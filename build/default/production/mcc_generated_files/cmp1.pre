@@ -6784,10 +6784,10 @@ void CMP1_Initialize(void)
 PIE2bits.C1IE = 0;
 
 
-CM1CON0 = 0x84;
+CM1CON0 = 0x80;
 
 
-CM1CON1 = 0xE9;
+CM1CON1 = 0x69;
 
 
 PIR2bits.C1IF = 0;

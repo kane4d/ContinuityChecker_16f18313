@@ -5137,15 +5137,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;cmp1.h: 91: void CMP1_Initialize(void);
+[; ;cmp1.h: 131: bool CMP1_GetOutputStatus(void);
+[; ;cmp1.h: 147: void CMP1_ISR(void);
 [; ;fvr.h: 92: void FVR_Initialize(void);
 [; ;fvr.h: 126: bool FVR_IsOutputReady(void);
 [; ;nco1.h: 92: void NCO1_Initialize(void);
 [; ;nco1.h: 127: bool NCO1_GetOutputStatus(void);
 [; ;dac1.h: 92: void DAC1_Initialize(void);
 [; ;dac1.h: 128: void DAC1_SetOutput(uint8_t inputData);
-[; ;cmp1.h: 91: void CMP1_Initialize(void);
-[; ;cmp1.h: 131: bool CMP1_GetOutputStatus(void);
-[; ;cmp1.h: 147: void CMP1_ISR(void);
+[; ;memory.h: 98: uint16_t FLASH_ReadWord(uint16_t flashAddr);
+[; ;memory.h: 127: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
+[; ;memory.h: 163: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
+[; ;memory.h: 188: void FLASH_EraseBlock(uint16_t startAddr);
+[; ;memory.h: 221: void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData);
+[; ;memory.h: 247: uint8_t DATAEE_ReadByte(uint16_t bAdd);
 [; ;adc.h: 71: typedef uint16_t adc_result_t;
 [; ;adc.h: 76: typedef struct
 [; ;adc.h: 77: {
@@ -5172,10 +5178,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;dsm.h: 164: void DSM_ManualModulationToggle (void);
 [; ;dsm.h: 189: void DSM_ModulationStart (void);
 [; ;dsm.h: 216: void DSM_ModulationStop (void);
-[; ;mcc.h: 74: void SYSTEM_Initialize(void);
-[; ;mcc.h: 87: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 100: void WDT_Initialize(void);
-[; ;mcc.h: 112: void PMD_Initialize(void);
+[; ;mcc.h: 75: void SYSTEM_Initialize(void);
+[; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 101: void WDT_Initialize(void);
+[; ;mcc.h: 113: void PMD_Initialize(void);
 [v $root$_INTERRUPT_InterruptManager `(v ~T0 @X0 0 e ]
 [v F3 `(v ~T0 @X0 1 tf ]
 "51 mcc_generated_files/interrupt_manager.c

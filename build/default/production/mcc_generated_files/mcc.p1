@@ -1,11 +1,11 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"112 mcc_generated_files/mcc.h
+"113 mcc_generated_files/mcc.h
 [v _PMD_Initialize `(v ~T0 @X0 0 ef ]
 "171 mcc_generated_files/pin_manager.h
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
-"87 mcc_generated_files/mcc.h
+"88 mcc_generated_files/mcc.h
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
-"100
+"101
 [v _WDT_Initialize `(v ~T0 @X0 0 ef ]
 "92 mcc_generated_files/fvr.h
 [v _FVR_Initialize `(v ~T0 @X0 0 ef ]
@@ -5173,15 +5173,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;interrupt_manager.h: 108: void interrupt INTERRUPT_InterruptManager(void);
+[; ;cmp1.h: 91: void CMP1_Initialize(void);
+[; ;cmp1.h: 131: bool CMP1_GetOutputStatus(void);
+[; ;cmp1.h: 147: void CMP1_ISR(void);
 [; ;fvr.h: 92: void FVR_Initialize(void);
 [; ;fvr.h: 126: bool FVR_IsOutputReady(void);
 [; ;nco1.h: 92: void NCO1_Initialize(void);
 [; ;nco1.h: 127: bool NCO1_GetOutputStatus(void);
 [; ;dac1.h: 92: void DAC1_Initialize(void);
 [; ;dac1.h: 128: void DAC1_SetOutput(uint8_t inputData);
-[; ;cmp1.h: 91: void CMP1_Initialize(void);
-[; ;cmp1.h: 131: bool CMP1_GetOutputStatus(void);
-[; ;cmp1.h: 147: void CMP1_ISR(void);
+[; ;memory.h: 98: uint16_t FLASH_ReadWord(uint16_t flashAddr);
+[; ;memory.h: 127: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
+[; ;memory.h: 163: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
+[; ;memory.h: 188: void FLASH_EraseBlock(uint16_t startAddr);
+[; ;memory.h: 221: void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData);
+[; ;memory.h: 247: uint8_t DATAEE_ReadByte(uint16_t bAdd);
 [; ;adc.h: 71: typedef uint16_t adc_result_t;
 [; ;adc.h: 76: typedef struct
 [; ;adc.h: 77: {
@@ -5208,10 +5214,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;dsm.h: 164: void DSM_ManualModulationToggle (void);
 [; ;dsm.h: 189: void DSM_ModulationStart (void);
 [; ;dsm.h: 216: void DSM_ModulationStop (void);
-[; ;mcc.h: 74: void SYSTEM_Initialize(void);
-[; ;mcc.h: 87: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 100: void WDT_Initialize(void);
-[; ;mcc.h: 112: void PMD_Initialize(void);
+[; ;mcc.h: 75: void SYSTEM_Initialize(void);
+[; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 101: void WDT_Initialize(void);
+[; ;mcc.h: 113: void PMD_Initialize(void);
 "77 mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
 "78
@@ -5289,9 +5295,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.c: 107: {
 [e :U _WDT_Initialize ]
 [f ]
-[; ;mcc.c: 109: WDTCON = 0x20;
+[; ;mcc.c: 109: WDTCON = 0x1C;
 "109
-[e = _WDTCON -> -> 32 `i `uc ]
+[e = _WDTCON -> -> 28 `i `uc ]
 [; ;mcc.c: 110: }
 "110
 [e :UE 660 ]

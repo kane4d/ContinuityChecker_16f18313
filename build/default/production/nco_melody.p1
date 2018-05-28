@@ -1,11 +1,11 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "224 nco_melody.h
-[c E5368 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 .. ]
-[n E5368 . SCALE_C4 SCALE_C4s SCALE_D4 SCALE_D4s SCALE_E4 SCALE_F4 SCALE_F4s SCALE_G4 SCALE_G4s SCALE_A4 SCALE_A4s SCALE_B4 SCALE_C5 SCALE_C5s SCALE_D5 SCALE_D5s SCALE_E5 SCALE_F5 SCALE_F5s SCALE_G5 SCALE_G5s SCALE_A5 SCALE_A5s SCALE_B5 SCALE_C6 SCALE_D6 SCALE_D6s SCALE_E6 SCALE_F6 SCALE_F6s SCALE_G6 SCALE_G6s SCALE_A6 SCALE_A6s SCALE_B6 SCALE_MUTE SizeOf_scales  ]
-[c E5350 2400 1200 600 1800 300 900 150 450 75 225 38 113 19 57 10 2 .. ]
-[n E5350 . NOTE_WHOLE NOTE_HALF NOTE_QUOTER NOTE_HALF_ NOTE_8TH NOTE_QUOTER_ NOTE_16TH NOTE_8TH_ NOTE_32TH NOTE_16TH_ NOTE_64TH NOTE_32TH_ NOTE_128TH NOTE_64TH_ NOTE_MUTE NOTE_2ms  ]
+[c E5384 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 .. ]
+[n E5384 . SCALE_C4 SCALE_C4s SCALE_D4 SCALE_D4s SCALE_E4 SCALE_F4 SCALE_F4s SCALE_G4 SCALE_G4s SCALE_A4 SCALE_A4s SCALE_B4 SCALE_C5 SCALE_C5s SCALE_D5 SCALE_D5s SCALE_E5 SCALE_F5 SCALE_F5s SCALE_G5 SCALE_G5s SCALE_A5 SCALE_A5s SCALE_B5 SCALE_C6 SCALE_D6 SCALE_D6s SCALE_E6 SCALE_F6 SCALE_F6s SCALE_G6 SCALE_G6s SCALE_A6 SCALE_A6s SCALE_B6 SCALE_MUTE SizeOf_scales  ]
+[c E5366 2400 1200 600 1800 300 900 150 450 75 225 38 113 19 57 10 2 .. ]
+[n E5366 . NOTE_WHOLE NOTE_HALF NOTE_QUOTER NOTE_HALF_ NOTE_8TH NOTE_QUOTER_ NOTE_16TH NOTE_8TH_ NOTE_32TH NOTE_16TH_ NOTE_64TH NOTE_32TH_ NOTE_128TH NOTE_64TH_ NOTE_MUTE NOTE_2ms  ]
 "192
-[s S658 `E5368 1 `E5350 1 ]
+[s S658 `E5384 1 `E5366 1 ]
 [n S658 . scale note ]
 [v F5233 `(v ~T0 @X0 1 tf1`ul ]
 "153 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic.h
@@ -5113,15 +5113,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;interrupt_manager.h: 108: void interrupt INTERRUPT_InterruptManager(void);
+[; ;cmp1.h: 91: void CMP1_Initialize(void);
+[; ;cmp1.h: 131: bool CMP1_GetOutputStatus(void);
+[; ;cmp1.h: 147: void CMP1_ISR(void);
 [; ;fvr.h: 92: void FVR_Initialize(void);
 [; ;fvr.h: 126: bool FVR_IsOutputReady(void);
 [; ;nco1.h: 92: void NCO1_Initialize(void);
 [; ;nco1.h: 127: bool NCO1_GetOutputStatus(void);
 [; ;dac1.h: 92: void DAC1_Initialize(void);
 [; ;dac1.h: 128: void DAC1_SetOutput(uint8_t inputData);
-[; ;cmp1.h: 91: void CMP1_Initialize(void);
-[; ;cmp1.h: 131: bool CMP1_GetOutputStatus(void);
-[; ;cmp1.h: 147: void CMP1_ISR(void);
+[; ;memory.h: 98: uint16_t FLASH_ReadWord(uint16_t flashAddr);
+[; ;memory.h: 127: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
+[; ;memory.h: 163: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
+[; ;memory.h: 188: void FLASH_EraseBlock(uint16_t startAddr);
+[; ;memory.h: 221: void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData);
+[; ;memory.h: 247: uint8_t DATAEE_ReadByte(uint16_t bAdd);
 [; ;adc.h: 71: typedef uint16_t adc_result_t;
 [; ;adc.h: 76: typedef struct
 [; ;adc.h: 77: {
@@ -5148,10 +5154,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;dsm.h: 164: void DSM_ManualModulationToggle (void);
 [; ;dsm.h: 189: void DSM_ModulationStart (void);
 [; ;dsm.h: 216: void DSM_ModulationStop (void);
-[; ;mcc.h: 74: void SYSTEM_Initialize(void);
-[; ;mcc.h: 87: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 100: void WDT_Initialize(void);
-[; ;mcc.h: 112: void PMD_Initialize(void);
+[; ;mcc.h: 75: void SYSTEM_Initialize(void);
+[; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 101: void WDT_Initialize(void);
+[; ;mcc.h: 113: void PMD_Initialize(void);
 [; ;nco_melody.h: 103: typedef enum {
 [; ;nco_melody.h: 104: NOTE_WHOLE = 2400u,
 [; ;nco_melody.h: 105: NOTE_HALF = 1200u,
@@ -5224,48 +5230,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 :U ..
 :U ..
 "225
-. `E5368 4
-. `E5350 4
+. `E5384 4
+. `E5366 4
 ..
 :U ..
 "226
-. `E5368 0
-. `E5350 2
+. `E5384 0
+. `E5366 2
 ..
 :U ..
 "227
-. `E5368 35
-. `E5350 4
+. `E5384 35
+. `E5366 4
 ..
 :U ..
 "228
-. `E5368 4
-. `E5350 4
+. `E5384 4
+. `E5366 4
 ..
 :U ..
 "229
-. `E5368 0
-. `E5350 2
+. `E5384 0
+. `E5366 2
 ..
 :U ..
 "230
-. `E5368 35
-. `E5350 4
+. `E5384 35
+. `E5366 4
 ..
 :U ..
 "231
-. `E5368 4
-. `E5350 4
+. `E5384 4
+. `E5366 4
 ..
 :U ..
 "232
-. `E5368 0
-. `E5350 2
+. `E5384 0
+. `E5366 2
 ..
 :U ..
 "233
-. `E5368 35
-. `E5350 4
+. `E5384 35
+. `E5366 4
 ..
 ..
 ]
@@ -5286,43 +5292,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 :U ..
 :U ..
 "246
-. `E5368 0
-. `E5350 4
+. `E5384 0
+. `E5366 4
 ..
 :U ..
 "247
-. `E5368 4
-. `E5350 4
+. `E5384 4
+. `E5366 4
 ..
 :U ..
 "248
-. `E5368 7
-. `E5350 2
+. `E5384 7
+. `E5366 2
 ..
 :U ..
 "249
-. `E5368 35
-. `E5350 4
+. `E5384 35
+. `E5366 4
 ..
 :U ..
 "250
-. `E5368 12
-. `E5350 4
+. `E5384 12
+. `E5366 4
 ..
 :U ..
 "251
-. `E5368 16
-. `E5350 4
+. `E5384 16
+. `E5366 4
 ..
 :U ..
 "252
-. `E5368 19
-. `E5350 4
+. `E5384 19
+. `E5366 4
 ..
 :U ..
 "253
-. `E5368 24
-. `E5350 2
+. `E5384 24
+. `E5366 2
 ..
 ..
 ]
@@ -5342,28 +5348,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 :U ..
 :U ..
 "262
-. `E5368 0
-. `E5350 2
+. `E5384 0
+. `E5366 2
 ..
 :U ..
 "263
-. `E5368 35
-. `E5350 4
+. `E5384 35
+. `E5366 4
 ..
 :U ..
 "264
-. `E5368 0
-. `E5350 2
+. `E5384 0
+. `E5366 2
 ..
 :U ..
 "265
-. `E5368 35
-. `E5350 4
+. `E5384 35
+. `E5366 4
 ..
 :U ..
 "266
-. `E5368 0
-. `E5350 2
+. `E5384 0
+. `E5366 2
 ..
 ..
 ]
@@ -5380,33 +5386,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 :U ..
 :U ..
 "275
-. `E5368 4
-. `E5350 5
+. `E5384 4
+. `E5366 5
 ..
 :U ..
 "276
-. `E5368 4
-. `E5350 4
+. `E5384 4
+. `E5366 4
 ..
 :U ..
 "277
-. `E5368 7
-. `E5350 1
+. `E5384 7
+. `E5366 1
 ..
 :U ..
 "278
-. `E5368 2
-. `E5350 5
+. `E5384 2
+. `E5366 5
 ..
 :U ..
 "279
-. `E5368 4
-. `E5350 4
+. `E5384 4
+. `E5366 4
 ..
 :U ..
 "280
-. `E5368 5
-. `E5350 1
+. `E5384 5
+. `E5366 1
 ..
 ..
 ]
@@ -5424,68 +5430,68 @@ Version 3.2 HI-TECH Software Intermediate Code
 :U ..
 :U ..
 "293
-. `E5368 9
-. `E5350 2
+. `E5384 9
+. `E5366 2
 ..
 :U ..
 "294
-. `E5368 11
-. `E5350 2
+. `E5384 11
+. `E5366 2
 ..
 :U ..
 "295
-. `E5368 13
-. `E5350 1
+. `E5384 13
+. `E5366 1
 ..
 :U ..
 "296
-. `E5368 11
-. `E5350 2
+. `E5384 11
+. `E5366 2
 ..
 :U ..
 "297
-. `E5368 9
-. `E5350 2
+. `E5384 9
+. `E5366 2
 ..
 :U ..
 "299
-. `E5368 35
-. `E5350 0
+. `E5384 35
+. `E5366 0
 ..
 :U ..
 "301
-. `E5368 9
-. `E5350 2
+. `E5384 9
+. `E5366 2
 ..
 :U ..
 "302
-. `E5368 11
-. `E5350 2
+. `E5384 11
+. `E5366 2
 ..
 :U ..
 "303
-. `E5368 13
-. `E5350 2
+. `E5384 13
+. `E5366 2
 ..
 :U ..
 "304
-. `E5368 11
-. `E5350 2
+. `E5384 11
+. `E5366 2
 ..
 :U ..
 "305
-. `E5368 9
-. `E5350 2
+. `E5384 9
+. `E5366 2
 ..
 :U ..
 "306
-. `E5368 11
-. `E5350 1
+. `E5384 11
+. `E5366 1
 ..
 :U ..
 "307
-. `E5368 35
-. `E5350 0
+. `E5384 35
+. `E5366 0
 ..
 ..
 ]
@@ -5506,11 +5512,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;nco_melody.h: 308: };
 [; ;nco_melody.h: 320: void playMelody_pc98_pipo(void);
 "12 nco_melody.c
-[v _wait_note `(v ~T0 @X0 1 ef1`E5350 ]
+[v _wait_note `(v ~T0 @X0 1 ef1`E5366 ]
 {
 [; ;nco_melody.c: 12: void wait_note(notes_t len) {
 [e :U _wait_note ]
-[v _len `E5350 ~T0 @X0 1 r1 ]
+[v _len `E5366 ~T0 @X0 1 r1 ]
 [f ]
 [; ;nco_melody.c: 13: do {
 "13
@@ -5522,23 +5528,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 "15
 }
 [; ;nco_melody.c: 15: } while (--len);
-[e $ != -> =- _len -> -> 1 `i `E5350 `i -> -> -> 0 `i `E5350 `i 662  ]
+[e $ != -> =- _len -> -> 1 `i `E5366 `i -> -> -> 0 `i `E5366 `i 662  ]
 [e :U 661 ]
 [; ;nco_melody.c: 17: }
 "17
 [e :UE 659 ]
 }
 "19
-[v _toneOn `(v ~T0 @X0 1 ef2`E5368`E5350 ]
+[v _toneOn `(v ~T0 @X0 1 ef2`E5384`E5366 ]
 {
 [; ;nco_melody.c: 19: void toneOn(scales_t t, notes_t len) {
 [e :U _toneOn ]
-[v _t `E5368 ~T0 @X0 1 r1 ]
-[v _len `E5350 ~T0 @X0 1 r2 ]
+[v _t `E5384 ~T0 @X0 1 r1 ]
+[v _len `E5366 ~T0 @X0 1 r2 ]
 [f ]
 "26
-[v F5433 `Cui ~T0 @X0 -> 0 `x s scale_param16 ]
-[i F5433
+[v F5449 `Cui ~T0 @X0 -> 0 `x s scale_param16 ]
+[i F5449
 :U ..
 -> -> 549 `i `ui
 -> -> 581 `i `ui
@@ -5563,33 +5569,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; <" clrwdt ;# ">
 [; ;nco_melody.c: 29: wait_note(NOTE_128TH);
 "29
-[e ( _wait_note (1 . `E5350 12 ]
+[e ( _wait_note (1 . `E5366 12 ]
 [; ;nco_melody.c: 30: if (t < SCALE_MUTE) {
 "30
-[e $ ! < -> _t `i -> . `E5368 35 `i 664  ]
+[e $ ! < -> _t `i -> . `E5384 35 `i 664  ]
 {
 [; ;nco_melody.c: 31: if (t >= SCALE_C6) {
 "31
-[e $ ! >= -> _t `i -> . `E5368 24 `i 665  ]
+[e $ ! >= -> _t `i -> . `E5384 24 `i 665  ]
 {
 [; ;nco_melody.c: 32: {NCO1INCH = scale_param16[ t - SCALE_C6 ] << 2 >> 8 ;NCO1INCL = scale_param16[ t - SCALE_C6 ] << 2 & 0x00ff;};
 "32
 {
-[e = _NCO1INCH -> >> << *U + &U F5433 * -> -> - -> _t `i -> . `E5368 24 `i `ui `ux -> -> # *U &U F5433 `ui `ux -> 2 `i -> 8 `i `uc ]
-[e = _NCO1INCL -> & << *U + &U F5433 * -> -> - -> _t `i -> . `E5368 24 `i `ui `ux -> -> # *U &U F5433 `ui `ux -> 2 `i -> -> 255 `i `ui `uc ]
+[e = _NCO1INCH -> >> << *U + &U F5449 * -> -> - -> _t `i -> . `E5384 24 `i `ui `ux -> -> # *U &U F5449 `ui `ux -> 2 `i -> 8 `i `uc ]
+[e = _NCO1INCL -> & << *U + &U F5449 * -> -> - -> _t `i -> . `E5384 24 `i `ui `ux -> -> # *U &U F5449 `ui `ux -> 2 `i -> -> 255 `i `ui `uc ]
 }
 "33
 }
 [; ;nco_melody.c: 33: } else if (t >= SCALE_C5) {
 [e $U 666  ]
 [e :U 665 ]
-[e $ ! >= -> _t `i -> . `E5368 12 `i 667  ]
+[e $ ! >= -> _t `i -> . `E5384 12 `i 667  ]
 {
 [; ;nco_melody.c: 34: {NCO1INCH = scale_param16[ t - SCALE_C5 ] << 1 >> 8 ;NCO1INCL = scale_param16[ t - SCALE_C5 ] << 1 & 0x00ff;};
 "34
 {
-[e = _NCO1INCH -> >> << *U + &U F5433 * -> -> - -> _t `i -> . `E5368 12 `i `ui `ux -> -> # *U &U F5433 `ui `ux -> 1 `i -> 8 `i `uc ]
-[e = _NCO1INCL -> & << *U + &U F5433 * -> -> - -> _t `i -> . `E5368 12 `i `ui `ux -> -> # *U &U F5433 `ui `ux -> 1 `i -> -> 255 `i `ui `uc ]
+[e = _NCO1INCH -> >> << *U + &U F5449 * -> -> - -> _t `i -> . `E5384 12 `i `ui `ux -> -> # *U &U F5449 `ui `ux -> 1 `i -> 8 `i `uc ]
+[e = _NCO1INCL -> & << *U + &U F5449 * -> -> - -> _t `i -> . `E5384 12 `i `ui `ux -> -> # *U &U F5449 `ui `ux -> 1 `i -> -> 255 `i `ui `uc ]
 }
 "35
 }
@@ -5600,8 +5606,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;nco_melody.c: 36: {NCO1INCH = scale_param16[ t ] >> 8 ;NCO1INCL = scale_param16[ t ] & 0x00ff;};
 "36
 {
-[e = _NCO1INCH -> >> *U + &U F5433 * -> _t `ux -> -> # *U &U F5433 `ui `ux -> 8 `i `uc ]
-[e = _NCO1INCL -> & *U + &U F5433 * -> _t `ux -> -> # *U &U F5433 `ui `ux -> -> 255 `i `ui `uc ]
+[e = _NCO1INCH -> >> *U + &U F5449 * -> _t `ux -> -> # *U &U F5449 `ui `ux -> 8 `i `uc ]
+[e = _NCO1INCL -> & *U + &U F5449 * -> _t `ux -> -> # *U &U F5449 `ui `ux -> -> 255 `i `ui `uc ]
 }
 "37
 }
@@ -5659,29 +5665,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 669 ]
 }
 "50
-[v _playMelody_fullScale `(v ~T0 @X0 1 ef1`E5350 ]
+[v _playMelody_fullScale `(v ~T0 @X0 1 ef1`E5366 ]
 {
 [; ;nco_melody.c: 50: void playMelody_fullScale(notes_t len) {
 [e :U _playMelody_fullScale ]
-[v _len `E5350 ~T0 @X0 1 r1 ]
+[v _len `E5366 ~T0 @X0 1 r1 ]
 [f ]
 [; ;nco_melody.c: 51: for (uint16_t i = 0; i < SizeOf_scales - 1; i++) {
 "51
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
-[e $ < _i -> - -> . `E5368 36 `i -> 1 `i `ui 675  ]
+[e $ < _i -> - -> . `E5384 36 `i -> 1 `i `ui 675  ]
 [e $U 676  ]
 [e :U 675 ]
 {
 [; ;nco_melody.c: 52: toneOn(i, len);
 "52
-[e ( _toneOn (2 , -> _i `E5368 _len ]
+[e ( _toneOn (2 , -> _i `E5384 _len ]
 "53
 }
 "51
 [e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> - -> . `E5368 36 `i -> 1 `i `ui 675  ]
+[e $ < _i -> - -> . `E5384 36 `i -> 1 `i `ui 675  ]
 [e :U 676 ]
 "53
 }
@@ -5710,12 +5716,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [; ;nco_melody.c: 60: wait_note(NOTE_16TH_);
 "60
-[e ( _wait_note (1 . `E5350 9 ]
+[e ( _wait_note (1 . `E5366 9 ]
 [; ;nco_melody.c: 61: {DSM_ManualModulationClear();;wait_note(NOTE_128TH);};
 "61
 {
 [e ( _DSM_ManualModulationClear ..  ]
-[e ( _wait_note (1 . `E5350 12 ]
+[e ( _wait_note (1 . `E5366 12 ]
 }
 [; ;nco_melody.c: 62: DSM_ManualModulationSet();
 "62
@@ -5728,7 +5734,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [; ;nco_melody.c: 64: wait_note(NOTE_8TH_);
 "64
-[e ( _wait_note (1 . `E5350 7 ]
+[e ( _wait_note (1 . `E5366 7 ]
 [; ;nco_melody.c: 65: DSM_ManualModulationClear();;
 "65
 [e ( _DSM_ManualModulationClear ..  ]

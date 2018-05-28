@@ -12,7 +12,7 @@ channel_DAC1 62
 channel_FVR 63
 ]
 "224 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\nco_melody.h
-[e E5368 . `uc
+[e E5384 . `uc
 SCALE_C4 0
 SCALE_C4s 1
 SCALE_D4 2
@@ -51,7 +51,7 @@ SCALE_B6 34
 SCALE_MUTE 35
 SizeOf_scales 36
 ]
-[e E5350 . `ui
+[e E5366 . `ui
 NOTE_WHOLE 2400
 NOTE_HALF 1200
 NOTE_QUOTER 600
@@ -69,8 +69,8 @@ NOTE_64TH_ 57
 NOTE_MUTE 10
 NOTE_2ms 2
 ]
-"107 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\main.c
-[e E5313 . `uc
+"123 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\main.c
+[e E5329 . `uc
 probePin 4
 channel_AVSS 60
 channel_Temp 61
@@ -78,7 +78,7 @@ channel_DAC1 62
 channel_FVR 63
 ]
 "224 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\nco_melody.h
-[e E5368 . `uc
+[e E5384 . `uc
 SCALE_C4 0
 SCALE_C4s 1
 SCALE_D4 2
@@ -117,7 +117,7 @@ SCALE_B6 34
 SCALE_MUTE 35
 SizeOf_scales 36
 ]
-[e E5350 . `ui
+[e E5366 . `ui
 NOTE_WHOLE 2400
 NOTE_HALF 1200
 NOTE_QUOTER 600
@@ -145,7 +145,7 @@ NOTE_2ms 2
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"75 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\main.c
+"79 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "64 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
@@ -153,6 +153,8 @@ NOTE_2ms 2
 [v _ADC_GetConversion ADC_GetConversion `(ui  1 e 2 0 ]
 "57 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\mcc_generated_files/cmp1.c
 [v _CMP1_Initialize CMP1_Initialize `(v  1 e 1 0 ]
+"79
+[v _CMP1_GetOutputStatus CMP1_GetOutputStatus `(uc  1 e 1 0 ]
 "84
 [v _CMP1_ISR CMP1_ISR `(v  1 e 1 0 ]
 "57 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\mcc_generated_files/dac1.c
@@ -179,6 +181,12 @@ NOTE_2ms 2
 [v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
 "112
 [v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
+"57 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\mcc_generated_files/memory.c
+[v _FLASH_ReadWord FLASH_ReadWord `(ui  1 e 2 0 ]
+"94
+[v _FLASH_WriteBlock FLASH_WriteBlock `(c  1 e 1 0 ]
+"150
+[v _FLASH_EraseBlock FLASH_EraseBlock `(v  1 e 1 0 ]
 "57 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\mcc_generated_files/nco1.c
 [v _NCO1_Initialize NCO1_Initialize `(v  1 e 1 0 ]
 "54 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\mcc_generated_files/pin_manager.c
@@ -274,7 +282,7 @@ NOTE_2ms 2
 [v _ADACT ADACT `VEuc  1 e 1 @159 ]
 "2021
 [v _LATA LATA `VEuc  1 e 1 @268 ]
-[s S552 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S676 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -282,17 +290,17 @@ NOTE_2ms 2
 `uc 1 LATA5 1 0 :1:5 
 ]
 "2036
-[u S559 . 1 `S552 1 . 1 0 ]
-[v _LATAbits LATAbits `VES559  1 e 1 @268 ]
+[u S683 . 1 `S676 1 . 1 0 ]
+[v _LATAbits LATAbits `VES683  1 e 1 @268 ]
 "2066
 [v _CM1CON0 CM1CON0 `VEuc  1 e 1 @273 ]
 "2118
 [v _CM1CON1 CM1CON1 `VEuc  1 e 1 @274 ]
-[s S739 . 1 `uc 1 MC1OUT 1 0 :1:0 
+[s S499 . 1 `uc 1 MC1OUT 1 0 :1:0 
 ]
 "2204
-[u S741 . 1 `S739 1 . 1 0 ]
-[v _CMOUTbits CMOUTbits `VES741  1 e 1 @277 ]
+[u S501 . 1 `S499 1 . 1 0 ]
+[v _CMOUTbits CMOUTbits `VES501  1 e 1 @277 ]
 "2241
 [v _FVRCON FVRCON `VEuc  1 e 1 @279 ]
 [s S319 . 1 `uc 1 ADFVR 1 0 :2:0 
@@ -316,10 +324,26 @@ NOTE_2ms 2
 [v _DACCON1 DACCON1 `VEuc  1 e 1 @281 ]
 "2425
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+[s S824 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 VREGPM 1 0 :1:1 
+]
+"2481
+[u S827 . 1 `S824 1 . 1 0 ]
+[v _VREGCONbits VREGCONbits `VES827  1 e 1 @407 ]
 "3336
 [v _WPUA WPUA `VEuc  1 e 1 @524 ]
 "4784
 [v _ODCONA ODCONA `VEuc  1 e 1 @652 ]
+[s S693 . 1 `uc 1 ODCA0 1 0 :1:0 
+`uc 1 ODCA1 1 0 :1:1 
+`uc 1 ODCA2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 ODCA4 1 0 :1:4 
+`uc 1 ODCA5 1 0 :1:5 
+]
+"4799
+[u S700 . 1 `S693 1 . 1 0 ]
+[v _ODCONAbits ODCONAbits `VES700  1 e 1 @652 ]
 [s S145 . 1 `uc 1 IOCAP0 1 0 :1:0 
 `uc 1 IOCAP1 1 0 :1:1 
 `uc 1 IOCAP2 1 0 :1:2 
@@ -392,18 +416,95 @@ NOTE_2ms 2
 [v _NCO1CONbits NCO1CONbits `VES375  1 e 1 @1182 ]
 "5825
 [v _NCO1CLK NCO1CLK `VEuc  1 e 1 @1183 ]
+"6938
+[v _NVMADRL NVMADRL `VEuc  1 e 1 @2193 ]
+"7340
+[v _NVMADRH NVMADRH `VEuc  1 e 1 @2194 ]
+"7704
+[v _NVMDATL NVMDATL `VEuc  1 e 1 @2195 ]
+"8106
+[v _NVMDATH NVMDATH `VEuc  1 e 1 @2196 ]
+[s S520 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 FREE 1 0 :1:4 
+`uc 1 LWLO 1 0 :1:5 
+`uc 1 NVMREGS 1 0 :1:6 
+]
+"8465
+[s S528 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CFGS 1 0 :1:6 
+]
+[u S531 . 1 `S520 1 . 1 0 `S528 1 . 1 0 ]
+[v _NVMCON1bits NVMCON1bits `VES531  1 e 1 @2197 ]
+"8625
+[v _NVMCON2 NVMCON2 `VEuc  1 e 1 @2198 ]
 "8784
 [v _PMD0 PMD0 `VEuc  1 e 1 @2321 ]
+[s S726 . 1 `uc 1 IOCMD 1 0 :1:0 
+`uc 1 CLKRMD 1 0 :1:1 
+`uc 1 NVMMD 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 FVRMD 1 0 :1:6 
+`uc 1 SYSCMD 1 0 :1:7 
+]
+"8799
+[u S733 . 1 `S726 1 . 1 0 ]
+[v _PMD0bits PMD0bits `VES733  1 e 1 @2321 ]
 "8829
 [v _PMD1 PMD1 `VEuc  1 e 1 @2322 ]
+[s S743 . 1 `uc 1 TMR0MD 1 0 :1:0 
+`uc 1 TMR1MD 1 0 :1:1 
+`uc 1 TMR2MD 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 NCOMD 1 0 :1:7 
+]
+"8843
+[u S749 . 1 `S743 1 . 1 0 ]
+[v _PMD1bits PMD1bits `VES749  1 e 1 @2322 ]
 "8868
 [v _PMD2 PMD2 `VEuc  1 e 1 @2323 ]
+[s S758 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CMP1MD 1 0 :1:1 
+`uc 1 . 1 0 :3:2 
+`uc 1 ADCMD 1 0 :1:5 
+`uc 1 DACMD 1 0 :1:6 
+]
+"8882
+[u S764 . 1 `S758 1 . 1 0 ]
+[v _PMD2bits PMD2bits `VES764  1 e 1 @2323 ]
 "8902
 [v _PMD3 PMD3 `VEuc  1 e 1 @2324 ]
+[s S773 . 1 `uc 1 CCP1MD 1 0 :1:0 
+`uc 1 CCP2MD 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 PWM5MD 1 0 :1:4 
+`uc 1 PWM6MD 1 0 :1:5 
+`uc 1 CWG1MD 1 0 :1:6 
+]
+"8917
+[u S780 . 1 `S773 1 . 1 0 ]
+[v _PMD3bits PMD3bits `VES780  1 e 1 @2324 ]
 "8947
 [v _PMD4 PMD4 `VEuc  1 e 1 @2325 ]
+[s S790 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 MSSP1MD 1 0 :1:1 
+`uc 1 . 1 0 :3:2 
+`uc 1 UART1MD 1 0 :1:5 
+]
+"8960
+[u S795 . 1 `S790 1 . 1 0 ]
+[v _PMD4bits PMD4bits `VES795  1 e 1 @2325 ]
 "8975
 [v _PMD5 PMD5 `VEuc  1 e 1 @2326 ]
+[s S803 . 1 `uc 1 DSMMD 1 0 :1:0 
+`uc 1 CLC1MD 1 0 :1:1 
+`uc 1 CLC2MD 1 0 :1:2 
+]
+"8987
+[u S807 . 1 `S803 1 . 1 0 ]
+[v _PMD5bits PMD5bits `VES807  1 e 1 @2326 ]
 "9072
 [v _OSCCON1 OSCCON1 `VEuc  1 e 1 @2329 ]
 "9212
@@ -425,22 +526,22 @@ NOTE_2ms 2
 ]
 [u S193 . 1 `S185 1 . 1 0 `S187 1 . 1 0 ]
 [v _RA2PPSbits RA2PPSbits `VES193  1 e 1 @3730 ]
-[s S539 . 6 `ui 1 val 2 0 `ui 1 dacVal 2 2 `ui 1 ttl 2 4 ]
+[s S655 . 6 `ui 1 val 2 0 `ui 1 dacVal 2 2 `ui 1 ttl 2 4 ]
 "66 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\main.c
-[v _probe probe `VES539  1 e 6 0 ]
+[v _probe probe `VES655  1 e 6 0 ]
 "51 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\mcc_generated_files/pin_manager.c
 [v _IOCAF3_InterruptHandler IOCAF3_InterruptHandler `*.37(v  1 e 2 0 ]
-[s S536 . 3 `E5368 1 scale 1 0 `E5350 1 note 2 1 ]
+[s S652 . 3 `E5384 1 scale 1 0 `E5366 1 note 2 1 ]
 "224 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\nco_melody.h
-[v _melodyData_lowBatt melodyData_lowBatt `DC[9]S536  1 e 27 0 ]
+[v _melodyData_lowBatt melodyData_lowBatt `DC[9]S652  1 e 27 0 ]
 "261
-[v _melodyData_halt melodyData_halt `DC[5]S536  1 e 15 0 ]
+[v _melodyData_halt melodyData_halt `DC[5]S652  1 e 15 0 ]
 "274
-[v _melodyData_sleep melodyData_sleep `DC[6]S536  1 e 18 0 ]
-"75 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\main.c
+[v _melodyData_sleep melodyData_sleep `DC[6]S652  1 e 18 0 ]
+"79 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"166
+"238
 } 0
 "56 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\nco_melody.c
 [v _playMelody_pc98_pipo playMelody_pc98_pipo `(v  1 e 1 0 ]
@@ -452,27 +553,27 @@ NOTE_2ms 2
 {
 "44
 [v playMelody@i i `ui  1 a 2 12 ]
-[s S536 . 3 `E5368 1 scale 1 0 `E5350 1 note 2 1 ]
+[s S652 . 3 `E5384 1 scale 1 0 `E5366 1 note 2 1 ]
 "43
-[v playMelody@melody melody `*.25DCS536  1 p 2 6 ]
+[v playMelody@melody melody `*.25DCS652  1 p 2 6 ]
 [v playMelody@len len `ui  1 p 2 8 ]
 "48
 } 0
 "19
 [v _toneOn toneOn `(v  1 e 1 0 ]
 {
-[v toneOn@t t `E5368  1 a 1 wreg ]
-[v toneOn@t t `E5368  1 a 1 wreg ]
-[v toneOn@len len `E5350  1 p 2 7 ]
+[v toneOn@t t `E5384  1 a 1 wreg ]
+[v toneOn@t t `E5384  1 a 1 wreg ]
+[v toneOn@len len `E5366  1 p 2 7 ]
 "26
 [v toneOn@scale_param16 scale_param16 `DC[12]ui  1 s 24 scale_param16 ]
-[v toneOn@t t `E5368  1 a 1 9 ]
+[v toneOn@t t `E5384  1 a 1 9 ]
 "41
 } 0
 "12
 [v _wait_note wait_note `(v  1 e 1 0 ]
 {
-[v wait_note@len len `E5350  1 p 2 1 ]
+[v wait_note@len len `E5366  1 p 2 1 ]
 "17
 } 0
 "78 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\mcc_generated_files/dsm.c
@@ -569,6 +670,11 @@ NOTE_2ms 2
 "67
 [v DAC1_SetOutput@inputData inputData `uc  1 a 1 1 ]
 "68
+} 0
+"79 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\mcc_generated_files/cmp1.c
+[v _CMP1_GetOutputStatus CMP1_GetOutputStatus `(uc  1 e 1 0 ]
+{
+"82
 } 0
 "112 C:\Users\kane4d\MPLABXProjects\ContinuityChecker_16f18313.X\mcc_generated_files/adc.c
 [v _ADC_GetConversion ADC_GetConversion `(ui  1 e 2 0 ]

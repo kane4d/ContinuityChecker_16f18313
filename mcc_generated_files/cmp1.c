@@ -63,11 +63,11 @@ void CMP1_Initialize(void)
        bit of the CMxCON0 register.*/
     PIE2bits.C1IE = 0;
 
-	// C1HYS disabled; C1SP hi_speed; C1ON enabled; C1POL not inverted; C1SYNC asynchronous;                          
-    CM1CON0 = 0x84;
+	// C1HYS disabled; C1SP lo_speed; C1ON enabled; C1POL not inverted; C1SYNC asynchronous;                          
+    CM1CON0 = 0x80;
 	
-	// C1INTN intFlag_neg; C1INTP intFlag_pos; C1PCH DAC; C1NCH CIN1-;                          
-    CM1CON1 = 0xE9;
+	// C1INTN intFlag_neg; C1INTP no_intFlag; C1PCH DAC; C1NCH CIN1-;                          
+    CM1CON1 = 0x69;
 	
     // Clearing IF flag before enabling the interrupt.
     PIR2bits.C1IF = 0;

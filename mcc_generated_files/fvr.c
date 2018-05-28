@@ -56,8 +56,8 @@
 
 void FVR_Initialize(void)
 {
-    // CDAFVR 1x; FVREN enabled; TSRNG Lo_range; ADFVR 1x; TSEN disabled; 
-    FVRCON = 0x85;
+    // CDAFVR off; FVREN enabled; TSRNG Lo_range; ADFVR 1x; TSEN disabled; 
+    FVRCON = 0x81;
 }
 
 bool FVR_IsOutputReady(void)
