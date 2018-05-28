@@ -73,6 +73,10 @@ volatile struct {
 #define PROBE_PWR_ON() {probePwr_SetPushPull(); probePwr_SetHigh();}
 #define PROBE_PWR_OFF() {probePwr_SetOpenDrain();probePwr_SetHigh();}
 #define DEEP_SLEEP() {VREGCONbits.VREGPM = 1;SLEEP();NOP();}
+#define LIGHT_SLEEP() {VREGCONbits.VREGPM = 0;SLEEP();NOP();}
+#define WDT_ON() {WDTCONbits.SWDTEN=1;}
+#define WDT_OFF() {WDTCONbits.SWDTEN=0;}
+
 // NCO Melody Test mode
 // #define TEST_MODE
 
@@ -88,7 +92,7 @@ void main(void) {
     // Enable the Global Interrupts
     // GE=0でもSLEEPから復帰する
     // SLEEPから復帰後、ISRを実行しないだけのはず
-    //INTERRUPT_GlobalInterruptEnable();
+    INTERRUPT_GlobalInterruptEnable();
 
     // Enable the Peripheral Interrupts
     INTERRUPT_PeripheralInterruptEnable();
@@ -183,11 +187,12 @@ void main(void) {
     PROBE_ISR_ON();
     
     // 起動時とWDTリセット時にここからSLEEPに突入する
+    // WDTではSLEEP解除させない　SYSTEM_Initialize()内でOFFだけど念の為。
+    WDT_OFF();
     DEEP_SLEEP();
     // PMDで周辺機器を休止してるので、初期化処理を再実行
     SYSTEM_Initialize();
-
-    PROBE_ISR_OFF();
+    WDT_ON();
     
     // 旧国民機の起動音再生
     playMelody_pc98_pipo();
@@ -206,10 +211,16 @@ void main(void) {
     while (1) {
         toneOff();
         if (CMP1_GetOutputStatus())
-        {
-            VREGCONbits.VREGPM = 0;
-            SLEEP();
-            NOP();
+        {   // 省電力化のためにCMP1の値が下がるまでSLEEPしてADCへ行かない。
+            LIGHT_SLEEP();
+            if (STATUSbits.nTO == 0)
+            {
+                // http://ww1.microchip.com/downloads/en/DeviceDoc/PIC16(L)F1831318323%20Full%20Featured%20Low%20Pin%20Count%20Microcontrollers%20with%20XLP_40001799D.pdf
+                // page 63
+                // WDT wakeup from sleep
+                // nTO == 0, nPD ==0
+                RESET();
+            }
         }
         // ADCの値により音程を変化させている。
         // ダイオードによりVfが違うので、ここの値(CASE)をお好みにより変更する。
