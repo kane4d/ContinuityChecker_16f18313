@@ -1,27 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"224 nco_melody.h
-[c E5384 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 .. ]
-[n E5384 . SCALE_C4 SCALE_C4s SCALE_D4 SCALE_D4s SCALE_E4 SCALE_F4 SCALE_F4s SCALE_G4 SCALE_G4s SCALE_A4 SCALE_A4s SCALE_B4 SCALE_C5 SCALE_C5s SCALE_D5 SCALE_D5s SCALE_E5 SCALE_F5 SCALE_F5s SCALE_G5 SCALE_G5s SCALE_A5 SCALE_A5s SCALE_B5 SCALE_C6 SCALE_D6 SCALE_D6s SCALE_E6 SCALE_F6 SCALE_F6s SCALE_G6 SCALE_G6s SCALE_A6 SCALE_A6s SCALE_B6 SCALE_MUTE SizeOf_scales  ]
-[c E5366 2400 1200 600 1800 300 900 150 450 75 225 38 113 19 57 10 2 .. ]
-[n E5366 . NOTE_WHOLE NOTE_HALF NOTE_QUOTER NOTE_HALF_ NOTE_8TH NOTE_QUOTER_ NOTE_16TH NOTE_8TH_ NOTE_32TH NOTE_16TH_ NOTE_64TH NOTE_32TH_ NOTE_128TH NOTE_64TH_ NOTE_MUTE NOTE_2ms  ]
-"192
-[s S658 `E5384 1 `E5366 1 ]
-[n S658 . scale note ]
-"62 main.c
-[s S659 `ui 1 `ui 1 `ui 1 ]
-[n S659 . val dacVal ttl ]
-[p mainexit ]
-"75 mcc_generated_files/mcc.h
-[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"1612 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f18313.h
-[s S85 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S85 . NCO1IE . NVMIE C1IE ]
-"1611
-[u S84 `S85 1 ]
-[n S84 . . ]
-"1619
-[v _PIE2bits `VS84 ~T0 @X0 0 e@146 ]
-"355
+"355 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f18313.h
 [s S26 :1 `uc 1 :5 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S26 . INTEDG . PEIE GIE ]
 "354
@@ -29,138 +7,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S25 . . ]
 "362
 [v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
-"2027
-[s S108 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S108 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
-"2026
-[u S107 `S108 1 ]
-[n S107 . . ]
-"2036
-[v _LATAbits `VS107 ~T0 @X0 0 e@268 ]
-"4790
-[s S236 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S236 . ODCA0 ODCA1 ODCA2 . ODCA4 ODCA5 ]
-"4789
-[u S235 `S236 1 ]
-[n S235 . . ]
-"4799
-[v _ODCONAbits `VS235 ~T0 @X0 0 e@652 ]
-"128 mcc_generated_files/dac1.h
-[v _DAC1_SetOutput `(v ~T0 @X0 0 ef1`uc ]
+"6938
+[v _NVMADRL `Vuc ~T0 @X0 0 e@2193 ]
+"7340
+[v _NVMADRH `Vuc ~T0 @X0 0 e@2194 ]
+"8451
+[s S424 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S424 . RD WR WREN WRERR FREE LWLO NVMREGS ]
+"8460
+[s S425 :6 `uc 1 :1 `uc 1 ]
+[n S425 . . CFGS ]
+"8450
+[u S423 `S424 1 `S425 1 ]
+[n S423 . . . ]
+"8465
+[v _NVMCON1bits `VS423 ~T0 @X0 0 e@2197 ]
 "29 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
-"126 mcc_generated_files/fvr.h
-[v _FVR_IsOutputReady `(uc ~T0 @X0 0 ef ]
-"128 main.c
-[c E5329 4 60 61 62 63 .. ]
-[n E5329 . probePin channel_AVSS channel_Temp channel_DAC1 channel_FVR  ]
-"288 mcc_generated_files/adc.h
-[v _ADC_GetConversion `(ui ~T0 @X0 0 ef1`E5329 ]
-"211 nco_melody.h
-[v _playMelody `(v ~T0 @X0 0 ef2`*CS658`ui ]
-"8790 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f18313.h
-[s S447 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S447 . IOCMD CLKRMD NVMMD . FVRMD SYSCMD ]
-"8789
-[u S446 `S447 1 ]
-[n S446 . . ]
-"8799
-[v _PMD0bits `VS446 ~T0 @X0 0 e@2321 ]
-"8835
-[s S449 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
-[n S449 . TMR0MD TMR1MD TMR2MD . NCOMD ]
-"8834
-[u S448 `S449 1 ]
-[n S448 . . ]
-"8843
-[v _PMD1bits `VS448 ~T0 @X0 0 e@2322 ]
-"8874
-[s S451 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S451 . . CMP1MD . ADCMD DACMD ]
-"8873
-[u S450 `S451 1 ]
-[n S450 . . ]
-"8882
-[v _PMD2bits `VS450 ~T0 @X0 0 e@2323 ]
-"8908
-[s S453 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S453 . CCP1MD CCP2MD . PWM5MD PWM6MD CWG1MD ]
-"8907
-[u S452 `S453 1 ]
-[n S452 . . ]
-"8917
-[v _PMD3bits `VS452 ~T0 @X0 0 e@2324 ]
-"8953
-[s S455 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S455 . . MSSP1MD . UART1MD ]
-"8952
-[u S454 `S455 1 ]
-[n S454 . . ]
-"8960
-[v _PMD4bits `VS454 ~T0 @X0 0 e@2325 ]
-"8981
-[s S457 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S457 . DSMMD CLC1MD CLC2MD ]
-"8980
-[u S456 `S457 1 ]
-[n S456 . . ]
-"8987
-[v _PMD5bits `VS456 ~T0 @X0 0 e@2326 ]
-[v F5233 `(v ~T0 @X0 1 tf1`ul ]
-"153 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic.h
-[v __delay `JF5233 ~T0 @X0 0 e ]
-[p i __delay ]
-"533 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f18313.h
-[s S34 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S34 . NCO1IF . NVMIF C1IF ]
-"532
-[u S33 `S34 1 ]
-[n S33 . . ]
-"540
-[v _PIR2bits `VS33 ~T0 @X0 0 e@18 ]
-"1717
-[s S91 :1 `uc 1 :5 `uc 1 ]
-[n S91 . SWDTEN WDTPS ]
-"1721
-[s S92 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S92 . . WDTPS0 WDTPS1 WDTPS2 WDTPS3 WDTPS4 ]
-"1716
-[u S90 `S91 1 `S92 1 ]
-[n S90 . . . ]
-"1730
-[v _WDTCONbits `VS90 ~T0 @X0 0 e@151 ]
-"2476
-[s S130 :1 `uc 1 :1 `uc 1 ]
-[n S130 . . VREGPM ]
-"2475
-[u S129 `S130 1 ]
-[n S129 . . ]
-"2481
-[v _VREGCONbits `VS129 ~T0 @X0 0 e@407 ]
-"320 nco_melody.h
-[v _playMelody_pc98_pipo `(v ~T0 @X0 0 ef ]
-"140 mcc_generated_files/dsm.h
-[v _DSM_ManualModulationClear `(v ~T0 @X0 0 ef ]
-"131 mcc_generated_files/cmp1.h
-[v _CMP1_GetOutputStatus `(uc ~T0 @X0 0 ef ]
-"116 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f18313.h
-[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S8 . C DC Z nPD nTO ]
-"123
-[s S9 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S9 . CARRY . ZERO ]
-"115
-[u S7 `S8 1 `S9 1 ]
-[n S7 . . . ]
-"129
-[v _STATUSbits `VS7 ~T0 @X0 0 e@3 ]
-"92 mcc_generated_files/fvr.h
-[v _FVR_Initialize `(v ~T0 @X0 0 ef ]
-"92 mcc_generated_files/nco1.h
-[v _NCO1_Initialize `(v ~T0 @X0 0 ef ]
-"203 nco_melody.h
-[v _toneOn `(v ~T0 @X0 0 ef2`E5384`E5366 ]
+"8106 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f18313.h
+[v _NVMDATH `Vuc ~T0 @X0 0 e@2196 ]
+"7704
+[v _NVMDATL `Vuc ~T0 @X0 0 e@2195 ]
+"163 mcc_generated_files/memory.h
+[v _FLASH_WriteBlock `(c ~T0 @X0 0 ef2`ui`*ui ]
+"188
+[v _FLASH_EraseBlock `(v ~T0 @X0 0 ef1`ui ]
+"8625 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f18313.h
+[v _NVMCON2 `Vuc ~T0 @X0 0 e@2198 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5219,12 +5093,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-[; ;pin_manager.h: 171: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 183: void PIN_MANAGER_IOC(void);
-[; ;pin_manager.h: 196: void IOCAF3_ISR(void);
-[; ;pin_manager.h: 219: void IOCAF3_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;pin_manager.h: 243: extern void (*IOCAF3_InterruptHandler)(void);
-[; ;pin_manager.h: 267: void IOCAF3_DefaultInterruptHandler(void);
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -5253,798 +5122,408 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;interrupt_manager.h: 108: void interrupt INTERRUPT_InterruptManager(void);
-[; ;cmp1.h: 91: void CMP1_Initialize(void);
-[; ;cmp1.h: 131: bool CMP1_GetOutputStatus(void);
-[; ;cmp1.h: 147: void CMP1_ISR(void);
-[; ;fvr.h: 92: void FVR_Initialize(void);
-[; ;fvr.h: 126: bool FVR_IsOutputReady(void);
-[; ;nco1.h: 92: void NCO1_Initialize(void);
-[; ;nco1.h: 127: bool NCO1_GetOutputStatus(void);
-[; ;dac1.h: 92: void DAC1_Initialize(void);
-[; ;dac1.h: 128: void DAC1_SetOutput(uint8_t inputData);
 [; ;memory.h: 98: uint16_t FLASH_ReadWord(uint16_t flashAddr);
 [; ;memory.h: 127: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
 [; ;memory.h: 163: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
 [; ;memory.h: 188: void FLASH_EraseBlock(uint16_t startAddr);
 [; ;memory.h: 221: void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData);
 [; ;memory.h: 247: uint8_t DATAEE_ReadByte(uint16_t bAdd);
-[; ;adc.h: 71: typedef uint16_t adc_result_t;
-[; ;adc.h: 76: typedef struct
-[; ;adc.h: 77: {
-[; ;adc.h: 78: adc_result_t adcResult1;
-[; ;adc.h: 79: adc_result_t adcResult2;
-[; ;adc.h: 80: } adc_sync_double_result_t;
-[; ;adc.h: 94: typedef enum
-[; ;adc.h: 95: {
-[; ;adc.h: 96: probePin = 0x4,
-[; ;adc.h: 97: channel_AVSS = 0x3C,
-[; ;adc.h: 98: channel_Temp = 0x3D,
-[; ;adc.h: 99: channel_DAC1 = 0x3E,
-[; ;adc.h: 100: channel_FVR = 0x3F
-[; ;adc.h: 101: } adc_channel_t;
-[; ;adc.h: 136: void ADC_Initialize(void);
-[; ;adc.h: 166: void ADC_SelectChannel(adc_channel_t channel);
-[; ;adc.h: 193: void ADC_StartConversion();
-[; ;adc.h: 225: bool ADC_IsConversionDone();
-[; ;adc.h: 258: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 288: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;dsm.h: 90: void DSM_Initialize(void);
-[; ;dsm.h: 115: void DSM_ManualModulationSet (void);
-[; ;dsm.h: 140: void DSM_ManualModulationClear (void);
-[; ;dsm.h: 164: void DSM_ManualModulationToggle (void);
-[; ;dsm.h: 189: void DSM_ModulationStart (void);
-[; ;dsm.h: 216: void DSM_ModulationStop (void);
-[; ;mcc.h: 75: void SYSTEM_Initialize(void);
-[; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 101: void WDT_Initialize(void);
-[; ;mcc.h: 113: void PMD_Initialize(void);
-[; ;nco_melody.h: 103: typedef enum {
-[; ;nco_melody.h: 104: NOTE_WHOLE = 2400u,
-[; ;nco_melody.h: 105: NOTE_HALF = 1200u,
-[; ;nco_melody.h: 106: NOTE_QUOTER = 600u,
-[; ;nco_melody.h: 107: NOTE_HALF_ = NOTE_HALF + NOTE_QUOTER,
-[; ;nco_melody.h: 108: NOTE_8TH = 300u,
-[; ;nco_melody.h: 109: NOTE_QUOTER_ = NOTE_QUOTER + NOTE_8TH,
-[; ;nco_melody.h: 110: NOTE_16TH = 150u,
-[; ;nco_melody.h: 111: NOTE_8TH_ = NOTE_8TH + NOTE_16TH,
-[; ;nco_melody.h: 112: NOTE_32TH = 75u,
-[; ;nco_melody.h: 113: NOTE_16TH_ = NOTE_16TH + NOTE_32TH,
-[; ;nco_melody.h: 114: NOTE_64TH = 38u,
-[; ;nco_melody.h: 115: NOTE_32TH_ = NOTE_32TH + NOTE_64TH,
-[; ;nco_melody.h: 116: NOTE_128TH = 19u,
-[; ;nco_melody.h: 117: NOTE_64TH_ = NOTE_64TH + NOTE_128TH,
-[; ;nco_melody.h: 118: NOTE_MUTE = 10u,
-[; ;nco_melody.h: 119: NOTE_2ms = 2u
-[; ;nco_melody.h: 120: } notes_t;
-[; ;nco_melody.h: 134: typedef enum {
-[; ;nco_melody.h: 135: SCALE_C4 = 0,
-[; ;nco_melody.h: 136: SCALE_C4s,
-[; ;nco_melody.h: 137: SCALE_D4,
-[; ;nco_melody.h: 138: SCALE_D4s,
-[; ;nco_melody.h: 139: SCALE_E4,
-[; ;nco_melody.h: 140: SCALE_F4,
-[; ;nco_melody.h: 141: SCALE_F4s,
-[; ;nco_melody.h: 142: SCALE_G4,
-[; ;nco_melody.h: 143: SCALE_G4s,
-[; ;nco_melody.h: 144: SCALE_A4,
-[; ;nco_melody.h: 145: SCALE_A4s,
-[; ;nco_melody.h: 146: SCALE_B4,
-[; ;nco_melody.h: 147: SCALE_C5,
-[; ;nco_melody.h: 148: SCALE_C5s,
-[; ;nco_melody.h: 149: SCALE_D5,
-[; ;nco_melody.h: 150: SCALE_D5s,
-[; ;nco_melody.h: 151: SCALE_E5,
-[; ;nco_melody.h: 152: SCALE_F5,
-[; ;nco_melody.h: 153: SCALE_F5s,
-[; ;nco_melody.h: 154: SCALE_G5,
-[; ;nco_melody.h: 155: SCALE_G5s,
-[; ;nco_melody.h: 156: SCALE_A5,
-[; ;nco_melody.h: 157: SCALE_A5s,
-[; ;nco_melody.h: 158: SCALE_B5,
-[; ;nco_melody.h: 159: SCALE_C6,
-[; ;nco_melody.h: 160: SCALE_D6,
-[; ;nco_melody.h: 161: SCALE_D6s,
-[; ;nco_melody.h: 162: SCALE_E6,
-[; ;nco_melody.h: 163: SCALE_F6,
-[; ;nco_melody.h: 164: SCALE_F6s,
-[; ;nco_melody.h: 165: SCALE_G6,
-[; ;nco_melody.h: 166: SCALE_G6s,
-[; ;nco_melody.h: 167: SCALE_A6,
-[; ;nco_melody.h: 168: SCALE_A6s,
-[; ;nco_melody.h: 169: SCALE_B6,
-[; ;nco_melody.h: 170: SCALE_MUTE,
-[; ;nco_melody.h: 171: SizeOf_scales
-[; ;nco_melody.h: 172: } scales_t;
-[; ;nco_melody.h: 174: void wait_note(notes_t len);
-[; ;nco_melody.h: 190: void wait_note(notes_t len);
-[; ;nco_melody.h: 192: typedef struct {
-[; ;nco_melody.h: 193: scales_t scale;
-[; ;nco_melody.h: 194: notes_t note;
-[; ;nco_melody.h: 195: } tones_t;
-[; ;nco_melody.h: 203: void toneOn(scales_t t, notes_t len);
-[; ;nco_melody.h: 211: void playMelody(const tones_t* melody, uint16_t len);
-[; ;nco_melody.h: 218: void playMelody_fullScale(notes_t len);
-"224 nco_melody.h
-[v _melodyData_lowBatt `CS658 ~T0 @X0 -> 0 `x e ]
-[i _melodyData_lowBatt
-:U ..
-:U ..
-"225
-. `E5384 4
-. `E5366 4
-..
-:U ..
-"226
-. `E5384 0
-. `E5366 2
-..
-:U ..
-"227
-. `E5384 35
-. `E5366 4
-..
-:U ..
-"228
-. `E5384 4
-. `E5366 4
-..
-:U ..
-"229
-. `E5384 0
-. `E5366 2
-..
-:U ..
-"230
-. `E5384 35
-. `E5366 4
-..
-:U ..
-"231
-. `E5384 4
-. `E5366 4
-..
-:U ..
-"232
-. `E5384 0
-. `E5366 2
-..
-:U ..
-"233
-. `E5384 35
-. `E5366 4
-..
-..
-]
-[; ;nco_melody.h: 224: const tones_t melodyData_lowBatt[] = {
-[; ;nco_melody.h: 225: {SCALE_E4, (NOTE_8TH)},
-[; ;nco_melody.h: 226: {SCALE_C4, (NOTE_QUOTER)},
-[; ;nco_melody.h: 227: {SCALE_MUTE, (NOTE_8TH)},
-[; ;nco_melody.h: 228: {SCALE_E4, (NOTE_8TH)},
-[; ;nco_melody.h: 229: {SCALE_C4, (NOTE_QUOTER)},
-[; ;nco_melody.h: 230: {SCALE_MUTE, (NOTE_8TH)},
-[; ;nco_melody.h: 231: {SCALE_E4, (NOTE_8TH)},
-[; ;nco_melody.h: 232: {SCALE_C4, (NOTE_QUOTER)},
-[; ;nco_melody.h: 233: {SCALE_MUTE, (NOTE_8TH)},
-[; ;nco_melody.h: 234: };
-"245
-[v _melodyData_test `CS658 ~T0 @X0 -> 0 `x e ]
-[i _melodyData_test
-:U ..
-:U ..
-"246
-. `E5384 0
-. `E5366 4
-..
-:U ..
-"247
-. `E5384 4
-. `E5366 4
-..
-:U ..
-"248
-. `E5384 7
-. `E5366 2
-..
-:U ..
-"249
-. `E5384 35
-. `E5366 4
-..
-:U ..
-"250
-. `E5384 12
-. `E5366 4
-..
-:U ..
-"251
-. `E5384 16
-. `E5366 4
-..
-:U ..
-"252
-. `E5384 19
-. `E5366 4
-..
-:U ..
-"253
-. `E5384 24
-. `E5366 2
-..
-..
-]
-[; ;nco_melody.h: 245: const tones_t melodyData_test[] = {
-[; ;nco_melody.h: 246: {SCALE_C4, (NOTE_8TH)},
-[; ;nco_melody.h: 247: {SCALE_E4, (NOTE_8TH)},
-[; ;nco_melody.h: 248: {SCALE_G4, (NOTE_QUOTER)},
-[; ;nco_melody.h: 249: {SCALE_MUTE, (NOTE_8TH)},
-[; ;nco_melody.h: 250: {SCALE_C5, (NOTE_8TH)},
-[; ;nco_melody.h: 251: {SCALE_E5, (NOTE_8TH)},
-[; ;nco_melody.h: 252: {SCALE_G5, (NOTE_8TH)},
-[; ;nco_melody.h: 253: {SCALE_C6, (NOTE_QUOTER)},
-[; ;nco_melody.h: 254: };
-"261
-[v _melodyData_halt `CS658 ~T0 @X0 -> 0 `x e ]
-[i _melodyData_halt
-:U ..
-:U ..
-"262
-. `E5384 0
-. `E5366 2
-..
-:U ..
-"263
-. `E5384 35
-. `E5366 4
-..
-:U ..
-"264
-. `E5384 0
-. `E5366 2
-..
-:U ..
-"265
-. `E5384 35
-. `E5366 4
-..
-:U ..
-"266
-. `E5384 0
-. `E5366 2
-..
-..
-]
-[; ;nco_melody.h: 261: const tones_t melodyData_halt[] = {
-[; ;nco_melody.h: 262: {SCALE_C4, (NOTE_QUOTER)},
-[; ;nco_melody.h: 263: {SCALE_MUTE, (NOTE_8TH)},
-[; ;nco_melody.h: 264: {SCALE_C4, (NOTE_QUOTER)},
-[; ;nco_melody.h: 265: {SCALE_MUTE, (NOTE_8TH)},
-[; ;nco_melody.h: 266: {SCALE_C4, (NOTE_QUOTER)},
-[; ;nco_melody.h: 267: };
-"274
-[v _melodyData_sleep `CS658 ~T0 @X0 -> 0 `x e ]
-[i _melodyData_sleep
-:U ..
-:U ..
-"275
-. `E5384 4
-. `E5366 5
-..
-:U ..
-"276
-. `E5384 4
-. `E5366 4
-..
-:U ..
-"277
-. `E5384 7
-. `E5366 1
-..
-:U ..
-"278
-. `E5384 2
-. `E5366 5
-..
-:U ..
-"279
-. `E5384 4
-. `E5366 4
-..
-:U ..
-"280
-. `E5384 5
-. `E5366 1
-..
-..
-]
-[; ;nco_melody.h: 274: const tones_t melodyData_sleep[] = {
-[; ;nco_melody.h: 275: {SCALE_E4, NOTE_QUOTER_},
-[; ;nco_melody.h: 276: {SCALE_E4, NOTE_8TH},
-[; ;nco_melody.h: 277: {SCALE_G4, NOTE_HALF},
-[; ;nco_melody.h: 278: {SCALE_D4, NOTE_QUOTER_},
-[; ;nco_melody.h: 279: {SCALE_E4, NOTE_8TH},
-[; ;nco_melody.h: 280: {SCALE_F4, NOTE_HALF},
-[; ;nco_melody.h: 281: };
-"292
-[v _melodyData_charumera `CS658 ~T0 @X0 -> 0 `x e ]
-[i _melodyData_charumera
-:U ..
-:U ..
-"293
-. `E5384 9
-. `E5366 2
-..
-:U ..
-"294
-. `E5384 11
-. `E5366 2
-..
-:U ..
-"295
-. `E5384 13
-. `E5366 1
-..
-:U ..
-"296
-. `E5384 11
-. `E5366 2
-..
-:U ..
-"297
-. `E5384 9
-. `E5366 2
-..
-:U ..
-"299
-. `E5384 35
-. `E5366 0
-..
-:U ..
-"301
-. `E5384 9
-. `E5366 2
-..
-:U ..
-"302
-. `E5384 11
-. `E5366 2
-..
-:U ..
-"303
-. `E5384 13
-. `E5366 2
-..
-:U ..
-"304
-. `E5384 11
-. `E5366 2
-..
-:U ..
-"305
-. `E5384 9
-. `E5366 2
-..
-:U ..
-"306
-. `E5384 11
-. `E5366 1
-..
-:U ..
-"307
-. `E5384 35
-. `E5366 0
-..
-..
-]
-[; ;nco_melody.h: 292: const tones_t melodyData_charumera[] = {
-[; ;nco_melody.h: 293: {SCALE_A4, NOTE_QUOTER},
-[; ;nco_melody.h: 294: {SCALE_B4, NOTE_QUOTER},
-[; ;nco_melody.h: 295: {SCALE_C5s, NOTE_HALF},
-[; ;nco_melody.h: 296: {SCALE_B4, NOTE_QUOTER},
-[; ;nco_melody.h: 297: {SCALE_A4, NOTE_QUOTER},
-[; ;nco_melody.h: 299: {SCALE_MUTE, NOTE_WHOLE},
-[; ;nco_melody.h: 301: {SCALE_A4, NOTE_QUOTER},
-[; ;nco_melody.h: 302: {SCALE_B4, NOTE_QUOTER},
-[; ;nco_melody.h: 303: {SCALE_C5s, NOTE_QUOTER},
-[; ;nco_melody.h: 304: {SCALE_B4, NOTE_QUOTER},
-[; ;nco_melody.h: 305: {SCALE_A4, NOTE_QUOTER},
-[; ;nco_melody.h: 306: {SCALE_B4, NOTE_HALF},
-[; ;nco_melody.h: 307: {SCALE_MUTE, NOTE_WHOLE},
-[; ;nco_melody.h: 308: };
-[; ;nco_melody.h: 320: void playMelody_pc98_pipo(void);
-"66 main.c
-[v _probe `VS659 ~T0 @X0 1 e ]
-[; ;main.c: 62: volatile struct {
-[; ;main.c: 63: adc_result_t val;
-[; ;main.c: 64: adc_result_t dacVal;
-[; ;main.c: 65: uint16_t ttl;
-[; ;main.c: 66: } probe;
-[v $root$_main `(v ~T0 @X0 0 e ]
-"83
-[v _main `(v ~T0 @X0 1 ef ]
+"57 mcc_generated_files/memory.c
+[v _FLASH_ReadWord `(ui ~T0 @X0 1 ef1`ui ]
+"58
 {
-[; ;main.c: 83: void main(void) {
-[e :U _main ]
+[; ;memory.c: 57: uint16_t FLASH_ReadWord(uint16_t flashAddr)
+[; ;memory.c: 58: {
+[e :U _FLASH_ReadWord ]
+"57
+[v _flashAddr `ui ~T0 @X0 1 r1 ]
+"58
 [f ]
-[; ;main.c: 85: SYSTEM_Initialize();
+"59
+[v _GIEBitValue `uc ~T0 @X0 1 a ]
+[; ;memory.c: 59: uint8_t GIEBitValue = INTCONbits.GIE;
+[e = _GIEBitValue . . _INTCONbits 0 3 ]
+[; ;memory.c: 61: INTCONbits.GIE = 0;
+"61
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+[; ;memory.c: 62: NVMADRL = (flashAddr & 0x00FF);
+"62
+[e = _NVMADRL -> & _flashAddr -> -> 255 `i `ui `uc ]
+[; ;memory.c: 63: NVMADRH = ((flashAddr & 0xFF00) >> 8);
+"63
+[e = _NVMADRH -> >> & _flashAddr -> 65280 `ui -> 8 `i `uc ]
+[; ;memory.c: 65: NVMCON1bits.NVMREGS = 0;
+"65
+[e = . . _NVMCON1bits 0 6 -> -> 0 `i `uc ]
+[; ;memory.c: 66: NVMCON1bits.RD = 1;
+"66
+[e = . . _NVMCON1bits 0 0 -> -> 1 `i `uc ]
+[; ;memory.c: 67: __nop();
+"67
+[e ( ___nop ..  ]
+[; ;memory.c: 68: __nop();
+"68
+[e ( ___nop ..  ]
+[; ;memory.c: 69: INTCONbits.GIE = GIEBitValue;
+"69
+[e = . . _INTCONbits 0 3 _GIEBitValue ]
+[; ;memory.c: 71: return ((uint16_t)((NVMDATH << 8) | NVMDATL));
+"71
+[e ) -> | << -> _NVMDATH `i -> 8 `i -> _NVMDATL `i `ui ]
+[e $UE 657  ]
+[; ;memory.c: 72: }
+"72
+[e :UE 657 ]
+}
+"74
+[v _FLASH_WriteWord `(v ~T0 @X0 1 ef3`ui`*ui`ui ]
+"75
+{
+[; ;memory.c: 74: void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word)
+[; ;memory.c: 75: {
+[e :U _FLASH_WriteWord ]
+"74
+[v _flashAddr `ui ~T0 @X0 1 r1 ]
+[v _ramBuf `*ui ~T0 @X0 1 r2 ]
+[v _word `ui ~T0 @X0 1 r3 ]
+"75
+[f ]
+"76
+[v _blockStartAddr `ui ~T0 @X0 1 a ]
+[; ;memory.c: 76: uint16_t blockStartAddr = (uint16_t)(flashAddr & ((0x800-1) ^ (32-1)));
+[e = _blockStartAddr & _flashAddr -> ^ - -> 2048 `i -> 1 `i - -> 32 `i -> 1 `i `ui ]
+"77
+[v _offset `uc ~T0 @X0 1 a ]
+[; ;memory.c: 77: uint8_t offset = (uint8_t)(flashAddr & (32-1));
+[e = _offset -> & _flashAddr -> - -> 32 `i -> 1 `i `ui `uc ]
+"78
+[v _i `uc ~T0 @X0 1 a ]
+[; ;memory.c: 78: uint8_t i;
+[; ;memory.c: 81: for (i=0; i<32; i++)
+"81
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 32 `i 659  ]
+[e $U 660  ]
+"82
+[e :U 659 ]
+[; ;memory.c: 82: {
+{
+[; ;memory.c: 83: ramBuf[i] = FLASH_ReadWord((blockStartAddr+i));
+"83
+[e = *U + _ramBuf * -> _i `ux -> -> # *U _ramBuf `ui `ux ( _FLASH_ReadWord (1 + _blockStartAddr -> _i `ui ]
+[; ;memory.c: 84: asm("clrwdt");
+"84
+[; <" clrwdt ;# ">
 "85
-[e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 87: {PIE2bits.C1IE = 0;};
-"87
-{
-[e = . . _PIE2bits 0 3 -> -> 0 `i `uc ]
 }
-[; ;main.c: 95: (INTCONbits.GIE = 1);
+"81
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 32 `i 659  ]
+[e :U 660 ]
+"85
+}
+[; ;memory.c: 85: }
+[; ;memory.c: 88: ramBuf[offset] = word;
+"88
+[e = *U + _ramBuf * -> _offset `ux -> -> # *U _ramBuf `ui `ux _word ]
+[; ;memory.c: 91: FLASH_WriteBlock(blockStartAddr, ramBuf);
+"91
+[e ( _FLASH_WriteBlock (2 , _blockStartAddr _ramBuf ]
+[; ;memory.c: 92: }
+"92
+[e :UE 658 ]
+}
+"94
+[v _FLASH_WriteBlock `(c ~T0 @X0 1 ef2`ui`*ui ]
 "95
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 98: (INTCONbits.PEIE = 1);
+{
+[; ;memory.c: 94: int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray)
+[; ;memory.c: 95: {
+[e :U _FLASH_WriteBlock ]
+"94
+[v _writeAddr `ui ~T0 @X0 1 r1 ]
+[v _flashWordArray `*ui ~T0 @X0 1 r2 ]
+"95
+[f ]
+"96
+[v _blockStartAddr `ui ~T0 @X0 1 a ]
+[; ;memory.c: 96: uint16_t blockStartAddr = (uint16_t )(writeAddr & ((0x800-1) ^ (32-1)));
+[e = _blockStartAddr & _writeAddr -> ^ - -> 2048 `i -> 1 `i - -> 32 `i -> 1 `i `ui ]
+"97
+[v _GIEBitValue `uc ~T0 @X0 1 a ]
+[; ;memory.c: 97: uint8_t GIEBitValue = INTCONbits.GIE;
+[e = _GIEBitValue . . _INTCONbits 0 3 ]
 "98
-[e = . . _INTCONbits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 106: do { LATAbits.LATA0 = 0; } while(0);
-"106
+[v _i `uc ~T0 @X0 1 a ]
+[; ;memory.c: 98: uint8_t i;
+[; ;memory.c: 102: if( writeAddr != blockStartAddr )
+"102
+[e $ ! != _writeAddr _blockStartAddr 663  ]
+[; ;memory.c: 103: {
+"103
+{
+[; ;memory.c: 104: return -1;
+"104
+[e ) -> -U -> 1 `i `c ]
+[e $UE 662  ]
+"105
+}
 [e :U 663 ]
-{
-[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
-}
-[e :U 662 ]
-[; ;main.c: 107: do { LATAbits.LATA1 = 0; } while(0);
+[; ;memory.c: 105: }
+[; ;memory.c: 107: INTCONbits.GIE = 0;
 "107
-[e :U 666 ]
-{
-[e = . . _LATAbits 0 1 -> -> 0 `i `uc ]
-}
-[e :U 665 ]
-[; ;main.c: 116: {do { ODCONAbits.ODCA5 = 1; } while(0);do { LATAbits.LATA5 = 1; } while(0);};
-"116
-{
-[e :U 669 ]
-{
-[e = . . _ODCONAbits 0 5 -> -> 1 `i `uc ]
-}
-[e :U 668 ]
-[e :U 672 ]
-{
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-}
-[e :U 671 ]
-}
-[; ;main.c: 117: DAC1_SetOutput(8);
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+[; ;memory.c: 110: FLASH_EraseBlock(writeAddr);
+"110
+[e ( _FLASH_EraseBlock (1 _writeAddr ]
+[; ;memory.c: 113: NVMCON1bits.NVMREGS = 0;
+"113
+[e = . . _NVMCON1bits 0 6 -> -> 0 `i `uc ]
+[; ;memory.c: 114: NVMCON1bits.WREN = 1;
+"114
+[e = . . _NVMCON1bits 0 2 -> -> 1 `i `uc ]
+[; ;memory.c: 115: NVMCON1bits.LWLO = 1;
+"115
+[e = . . _NVMCON1bits 0 5 -> -> 1 `i `uc ]
+[; ;memory.c: 117: for (i=0; i<32; i++)
 "117
-[e ( _DAC1_SetOutput (1 -> -> 8 `i `uc ]
-[; ;main.c: 121: while (!FVR_IsOutputReady()) {
-"121
-[e $U 673  ]
-[e :U 674 ]
 {
-[; ;main.c: 122: __nop();
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 32 `i 664  ]
+[e $U 665  ]
+"118
+[e :U 664 ]
+[; ;memory.c: 118: {
+{
+[; ;memory.c: 120: NVMADRL = (writeAddr & 0xFF);
+"120
+[e = _NVMADRL -> & _writeAddr -> -> 255 `i `ui `uc ]
+[; ;memory.c: 122: NVMADRH = ((writeAddr & 0xFF00) >> 8);
 "122
-[e ( ___nop ..  ]
-[; ;main.c: 123: __nop();
-"123
-[e ( ___nop ..  ]
-[; ;main.c: 124: __nop();
-"124
-[e ( ___nop ..  ]
+[e = _NVMADRH -> >> & _writeAddr -> 65280 `ui -> 8 `i `uc ]
+[; ;memory.c: 125: NVMDATL = flashWordArray[i];
 "125
-}
-[e :U 673 ]
-"121
-[e $ ! != -> ( _FVR_IsOutputReady ..  `i -> -> -> 0 `i `uc `i 674  ]
-[e :U 675 ]
-[; ;main.c: 125: }
-[; ;main.c: 128: probe.dacVal = ADC_GetConversion(channel_DAC1);
+[e = _NVMDATL -> *U + _flashWordArray * -> _i `ux -> -> # *U _flashWordArray `ui `ux `uc ]
+[; ;memory.c: 126: NVMDATH = ((flashWordArray[i] & 0xFF00) >> 8);
+"126
+[e = _NVMDATH -> >> & *U + _flashWordArray * -> _i `ux -> -> # *U _flashWordArray `ui `ux -> 65280 `ui -> 8 `i `uc ]
+[; ;memory.c: 128: if(i == (32-1))
 "128
-[e = . _probe 1 ( _ADC_GetConversion (1 . `E5329 3 ]
-[; ;main.c: 129: if (probe.dacVal > (600u)) {
+[e $ ! == -> _i `i - -> 32 `i -> 1 `i 667  ]
+[; ;memory.c: 129: {
 "129
-[e $ ! > . _probe 1 -> 600 `ui 676  ]
 {
+[; ;memory.c: 131: NVMCON1bits.LWLO = 0;
 "131
-}
-[; ;main.c: 131: } else if (probe.dacVal < (550u)) {
-[e $U 677  ]
-[e :U 676 ]
-[e $ ! < . _probe 1 -> 550 `ui 678  ]
-{
-[; ;main.c: 132: playMelody(melodyData_halt, ( sizeof(melodyData_halt) / sizeof(melodyData_halt[0]) ));;
+[e = . . _NVMCON1bits 0 5 -> -> 0 `i `uc ]
 "132
-[e ( _playMelody (2 , &U _melodyData_halt / -> # _melodyData_halt `ui -> # *U + &U _melodyData_halt * -> -> -> 0 `i `ui `ux -> -> # *U &U _melodyData_halt `ui `ux `ui ]
-"133
 }
-[; ;main.c: 133: } else {
-[e $U 679  ]
-[e :U 678 ]
-{
-[; ;main.c: 134: playMelody(melodyData_lowBatt, ( sizeof(melodyData_lowBatt) / sizeof(melodyData_lowBatt[0]) ));;
+[e :U 667 ]
+[; ;memory.c: 132: }
+[; ;memory.c: 134: NVMCON2 = 0x55;
 "134
-[e ( _playMelody (2 , &U _melodyData_lowBatt / -> # _melodyData_lowBatt `ui -> # *U + &U _melodyData_lowBatt * -> -> -> 0 `i `ui `ux -> -> # *U &U _melodyData_lowBatt `ui `ux `ui ]
+[e = _NVMCON2 -> -> 85 `i `uc ]
+[; ;memory.c: 135: NVMCON2 = 0xAA;
 "135
-}
-[e :U 679 ]
-[e :U 677 ]
-[; ;main.c: 135: }
-[; ;main.c: 137: playMelody(melodyData_sleep, ( sizeof(melodyData_sleep) / sizeof(melodyData_sleep[0]) ) );;
+[e = _NVMCON2 -> -> 170 `i `uc ]
+[; ;memory.c: 136: NVMCON1bits.WR = 1;
+"136
+[e = . . _NVMCON1bits 0 1 -> -> 1 `i `uc ]
+[; ;memory.c: 137: __nop();
 "137
-[e ( _playMelody (2 , &U _melodyData_sleep / -> # _melodyData_sleep `ui -> # *U + &U _melodyData_sleep * -> -> -> 0 `i `ui `ux -> -> # *U &U _melodyData_sleep `ui `ux `ui ]
-[; ;main.c: 163: PMD0bits.FVRMD = 1;
+[e ( ___nop ..  ]
+[; ;memory.c: 138: __nop();
+"138
+[e ( ___nop ..  ]
+[; ;memory.c: 140: writeAddr++;
+"140
+[e ++ _writeAddr -> -> 1 `i `ui ]
+[; ;memory.c: 141: asm("clrwdt");
+"141
+[; <" clrwdt ;# ">
+"142
+}
+"117
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 32 `i 664  ]
+[e :U 665 ]
+"142
+}
+[; ;memory.c: 142: }
+[; ;memory.c: 144: NVMCON1bits.WREN = 0;
+"144
+[e = . . _NVMCON1bits 0 2 -> -> 0 `i `uc ]
+[; ;memory.c: 145: INTCONbits.GIE = GIEBitValue;
+"145
+[e = . . _INTCONbits 0 3 _GIEBitValue ]
+[; ;memory.c: 147: return 0;
+"147
+[e ) -> -> 0 `i `c ]
+[e $UE 662  ]
+[; ;memory.c: 148: }
+"148
+[e :UE 662 ]
+}
+"150
+[v _FLASH_EraseBlock `(v ~T0 @X0 1 ef1`ui ]
+"151
+{
+[; ;memory.c: 150: void FLASH_EraseBlock(uint16_t startAddr)
+[; ;memory.c: 151: {
+[e :U _FLASH_EraseBlock ]
+"150
+[v _startAddr `ui ~T0 @X0 1 r1 ]
+"151
+[f ]
+"152
+[v _GIEBitValue `uc ~T0 @X0 1 a ]
+[; ;memory.c: 152: uint8_t GIEBitValue = INTCONbits.GIE;
+[e = _GIEBitValue . . _INTCONbits 0 3 ]
+[; ;memory.c: 155: INTCONbits.GIE = 0;
+"155
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+[; ;memory.c: 157: NVMADRL = (startAddr & 0xFF);
+"157
+[e = _NVMADRL -> & _startAddr -> -> 255 `i `ui `uc ]
+[; ;memory.c: 159: NVMADRH = ((startAddr & 0xFF00) >> 8);
+"159
+[e = _NVMADRH -> >> & _startAddr -> 65280 `ui -> 8 `i `uc ]
+[; ;memory.c: 162: NVMCON1bits.NVMREGS = 0;
+"162
+[e = . . _NVMCON1bits 0 6 -> -> 0 `i `uc ]
+[; ;memory.c: 163: NVMCON1bits.FREE = 1;
 "163
-[e = . . _PMD0bits 0 4 -> -> 1 `i `uc ]
-[; ;main.c: 166: PMD1bits.TMR0MD = PMD1bits.TMR1MD = PMD1bits.TMR2MD = 1;
-"166
-[e = . . _PMD1bits 0 0 = . . _PMD1bits 0 1 = . . _PMD1bits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 167: PMD1bits.NCOMD = 1;
+[e = . . _NVMCON1bits 0 4 -> -> 1 `i `uc ]
+[; ;memory.c: 164: NVMCON1bits.WREN = 1;
+"164
+[e = . . _NVMCON1bits 0 2 -> -> 1 `i `uc ]
+[; ;memory.c: 167: NVMCON2 = 0x55;
 "167
-[e = . . _PMD1bits 0 4 -> -> 1 `i `uc ]
-[; ;main.c: 171: PMD2bits.CMP1MD = 0;
+[e = _NVMCON2 -> -> 85 `i `uc ]
+[; ;memory.c: 168: NVMCON2 = 0xAA;
+"168
+[e = _NVMCON2 -> -> 170 `i `uc ]
+[; ;memory.c: 169: NVMCON1bits.WR = 1;
+"169
+[e = . . _NVMCON1bits 0 1 -> -> 1 `i `uc ]
+[; ;memory.c: 170: __nop();
+"170
+[e ( ___nop ..  ]
+[; ;memory.c: 171: __nop();
 "171
-[e = . . _PMD2bits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 172: PMD2bits.ADCMD = 1;
-"172
-[e = . . _PMD2bits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 175: PMD3bits.CCP2MD = PMD3bits.CCP1MD = 1;
+[e ( ___nop ..  ]
+[; ;memory.c: 173: NVMCON1bits.WREN = 0;
+"173
+[e = . . _NVMCON1bits 0 2 -> -> 0 `i `uc ]
+[; ;memory.c: 174: INTCONbits.GIE = GIEBitValue;
+"174
+[e = . . _INTCONbits 0 3 _GIEBitValue ]
+[; ;memory.c: 175: }
 "175
-[e = . . _PMD3bits 0 1 = . . _PMD3bits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 176: PMD3bits.PWM6MD = PMD3bits.PWM5MD = 1;
-"176
-[e = . . _PMD3bits 0 4 = . . _PMD3bits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 177: PMD3bits.CWG1MD = 1;
-"177
-[e = . . _PMD3bits 0 5 -> -> 1 `i `uc ]
-[; ;main.c: 180: PMD4bits.MSSP1MD = PMD4bits.UART1MD = 1;
-"180
-[e = . . _PMD4bits 0 1 = . . _PMD4bits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 183: PMD5bits.DSMMD = 1;
+[e :UE 668 ]
+}
+"181
+[v _DATAEE_WriteByte `(v ~T0 @X0 1 ef2`ui`uc ]
+"182
+{
+[; ;memory.c: 181: void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData)
+[; ;memory.c: 182: {
+[e :U _DATAEE_WriteByte ]
+"181
+[v _bAdd `ui ~T0 @X0 1 r1 ]
+[v _bData `uc ~T0 @X0 1 r2 ]
+"182
+[f ]
 "183
-[e = . . _PMD5bits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 184: PMD5bits.CLC1MD = PMD5bits.CLC2MD = 1;
-"184
-[e = . . _PMD5bits 0 1 = . . _PMD5bits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 187: {DAC1_SetOutput(0);_delay((unsigned long)((10)*(1000000/4000000.0)));PIR2bits.C1IF = 0;PIE2bits.C1IE = 1;};
+[v _GIEBitValue `uc ~T0 @X0 1 a ]
+[; ;memory.c: 183: uint8_t GIEBitValue = INTCONbits.GIE;
+[e = _GIEBitValue . . _INTCONbits 0 3 ]
+[; ;memory.c: 185: NVMADRH = ((bAdd >> 8) & 0xFF);
+"185
+[e = _NVMADRH -> & >> _bAdd -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;memory.c: 186: NVMADRL = (bAdd & 0xFF);
+"186
+[e = _NVMADRL -> & _bAdd -> -> 255 `i `ui `uc ]
+[; ;memory.c: 187: NVMDATL = bData;
 "187
-{
-[e ( _DAC1_SetOutput (1 -> -> 0 `i `uc ]
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 1000000 `l `d .4000000.0 `ul ]
-[e = . . _PIR2bits 0 3 -> -> 0 `i `uc ]
-[e = . . _PIE2bits 0 3 -> -> 1 `i `uc ]
-}
-[; ;main.c: 191: {WDTCONbits.SWDTEN=0;};
+[e = _NVMDATL _bData ]
+[; ;memory.c: 188: NVMCON1bits.NVMREGS = 1;
+"188
+[e = . . _NVMCON1bits 0 6 -> -> 1 `i `uc ]
+[; ;memory.c: 189: NVMCON1bits.WREN = 1;
+"189
+[e = . . _NVMCON1bits 0 2 -> -> 1 `i `uc ]
+[; ;memory.c: 190: INTCONbits.GIE = 0;
+"190
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+[; ;memory.c: 191: NVMCON2 = 0x55;
 "191
-{
-[e = . . _WDTCONbits 0 0 -> -> 0 `i `uc ]
-}
-[; ;main.c: 192: {VREGCONbits.VREGPM = 1;asm("sleep");__nop();};
+[e = _NVMCON2 -> -> 85 `i `uc ]
+[; ;memory.c: 192: NVMCON2 = 0xAA;
 "192
-{
-[e = . . _VREGCONbits 0 1 -> -> 1 `i `uc ]
-[; <" sleep ;# ">
-[e ( ___nop ..  ]
-}
-[; ;main.c: 194: SYSTEM_Initialize();
-"194
-[e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 195: {WDTCONbits.SWDTEN=1;};
+[e = _NVMCON2 -> -> 170 `i `uc ]
+[; ;memory.c: 193: NVMCON1bits.WR = 1;
+"193
+[e = . . _NVMCON1bits 0 1 -> -> 1 `i `uc ]
+[; ;memory.c: 195: while (NVMCON1bits.WR)
 "195
-{
-[e = . . _WDTCONbits 0 0 -> -> 1 `i `uc ]
-}
-[; ;main.c: 196: PMD1bits.TMR0MD = PMD1bits.TMR1MD = PMD1bits.TMR2MD = 1;
+[e $U 670  ]
+[e :U 671 ]
+[; ;memory.c: 196: {
 "196
-[e = . . _PMD1bits 0 0 = . . _PMD1bits 0 1 = . . _PMD1bits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 197: PMD3bits.CCP2MD = PMD3bits.CCP1MD = 1;
+{
 "197
-[e = . . _PMD3bits 0 1 = . . _PMD3bits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 198: PMD3bits.PWM6MD = PMD3bits.PWM5MD = 1;
-"198
-[e = . . _PMD3bits 0 4 = . . _PMD3bits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 199: PMD3bits.CWG1MD = 1;
+}
+[e :U 670 ]
+"195
+[e $ != -> . . _NVMCON1bits 0 1 `i -> -> -> 0 `i `Vuc `i 671  ]
+[e :U 672 ]
+[; ;memory.c: 197: }
+[; ;memory.c: 199: NVMCON1bits.WREN = 0;
 "199
-[e = . . _PMD3bits 0 5 -> -> 1 `i `uc ]
-[; ;main.c: 200: PMD4bits.MSSP1MD = PMD4bits.UART1MD = 1;
+[e = . . _NVMCON1bits 0 2 -> -> 0 `i `uc ]
+[; ;memory.c: 200: INTCONbits.GIE = GIEBitValue;
 "200
-[e = . . _PMD4bits 0 1 = . . _PMD4bits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 201: PMD5bits.CLC1MD = PMD5bits.CLC2MD = 1;
+[e = . . _INTCONbits 0 3 _GIEBitValue ]
+[; ;memory.c: 201: }
 "201
-[e = . . _PMD5bits 0 1 = . . _PMD5bits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 204: playMelody_pc98_pipo();
+[e :UE 669 ]
+}
+"203
+[v _DATAEE_ReadByte `(uc ~T0 @X0 1 ef1`ui ]
 "204
-[e ( _playMelody_pc98_pipo ..  ]
-[; ;main.c: 207: {do { ODCONAbits.ODCA5 = 0; } while(0); do { LATAbits.LATA5 = 1; } while(0);};
+{
+[; ;memory.c: 203: uint8_t DATAEE_ReadByte(uint16_t bAdd)
+[; ;memory.c: 204: {
+[e :U _DATAEE_ReadByte ]
+"203
+[v _bAdd `ui ~T0 @X0 1 r1 ]
+"204
+[f ]
+[; ;memory.c: 205: NVMADRH = ((bAdd >> 8) & 0xFF);
+"205
+[e = _NVMADRH -> & >> _bAdd -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;memory.c: 206: NVMADRL = (bAdd & 0xFF);
+"206
+[e = _NVMADRL -> & _bAdd -> -> 255 `i `ui `uc ]
+[; ;memory.c: 207: NVMCON1bits.NVMREGS = 1;
 "207
-{
-[e :U 682 ]
-{
-[e = . . _ODCONAbits 0 5 -> -> 0 `i `uc ]
-}
-[e :U 681 ]
-[e :U 685 ]
-{
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-}
-[e :U 684 ]
-}
-[; ;main.c: 213: while (1) {
+[e = . . _NVMCON1bits 0 6 -> -> 1 `i `uc ]
+[; ;memory.c: 208: NVMCON1bits.RD = 1;
+"208
+[e = . . _NVMCON1bits 0 0 -> -> 1 `i `uc ]
+[; ;memory.c: 209: __nop();
+"209
+[e ( ___nop ..  ]
+[; ;memory.c: 210: __nop();
+"210
+[e ( ___nop ..  ]
+[; ;memory.c: 212: return (NVMDATL);
+"212
+[e ) _NVMDATL ]
+[e $UE 673  ]
+[; ;memory.c: 213: }
 "213
-[e :U 687 ]
-{
-[; ;main.c: 214: DSM_ManualModulationClear();;
-"214
-[e ( _DSM_ManualModulationClear ..  ]
-[; ;main.c: 215: {do { ODCONAbits.ODCA5 = 1; } while(0);do { LATAbits.LATA5 = 1; } while(0);};
-"215
-{
-[e :U 691 ]
-{
-[e = . . _ODCONAbits 0 5 -> -> 1 `i `uc ]
-}
-[e :U 690 ]
-[e :U 694 ]
-{
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-}
-[e :U 693 ]
-}
-[; ;main.c: 216: if (!CMP1_GetOutputStatus())
-"216
-[e $ ! ! != -> ( _CMP1_GetOutputStatus ..  `i -> -> -> 0 `i `uc `i 695  ]
-[; ;main.c: 217: {
-"217
-{
-[; ;main.c: 221: PMD1bits.NCOMD = 1;
-"221
-[e = . . _PMD1bits 0 4 -> -> 1 `i `uc ]
-[; ;main.c: 222: PMD0bits.FVRMD = 1;
-"222
-[e = . . _PMD0bits 0 4 -> -> 1 `i `uc ]
-[; ;main.c: 223: {VREGCONbits.VREGPM = 1;asm("sleep");__nop();};
-"223
-{
-[e = . . _VREGCONbits 0 1 -> -> 1 `i `uc ]
-[; <" sleep ;# ">
-[e ( ___nop ..  ]
-}
-[; ;main.c: 224: if (STATUSbits.nTO == 0)
-"224
-[e $ ! == -> . . _STATUSbits 0 4 `i -> 0 `i 696  ]
-[; ;main.c: 225: {
-"225
-{
-[; ;main.c: 230: asm("reset");
-"230
-[; <" reset ;# ">
-"231
-}
-[e :U 696 ]
-[; ;main.c: 231: }
-[; ;main.c: 232: {do { ODCONAbits.ODCA5 = 0; } while(0); do { LATAbits.LATA5 = 1; } while(0);};
-"232
-{
-[e :U 699 ]
-{
-[e = . . _ODCONAbits 0 5 -> -> 0 `i `uc ]
-}
-[e :U 698 ]
-[e :U 702 ]
-{
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-}
-[e :U 701 ]
-}
-[; ;main.c: 233: PMD0bits.FVRMD = 0;
-"233
-[e = . . _PMD0bits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 234: FVR_Initialize();
-"234
-[e ( _FVR_Initialize ..  ]
-[; ;main.c: 235: PMD1bits.NCOMD = 0;
-"235
-[e = . . _PMD1bits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 236: NCO1_Initialize();
-"236
-[e ( _NCO1_Initialize ..  ]
-[; ;main.c: 237: while (!FVR_IsOutputReady()) {
-"237
-[e $U 703  ]
-[e :U 704 ]
-{
-[; ;main.c: 238: __nop();
-"238
-[e ( ___nop ..  ]
-[; ;main.c: 239: __nop();
-"239
-[e ( ___nop ..  ]
-[; ;main.c: 240: __nop();
-"240
-[e ( ___nop ..  ]
-"241
-}
-[e :U 703 ]
-"237
-[e $ ! != -> ( _FVR_IsOutputReady ..  `i -> -> -> 0 `i `uc `i 704  ]
-[e :U 705 ]
-"242
-}
-[e :U 695 ]
-[; ;main.c: 241: }
-[; ;main.c: 242: }
-[; ;main.c: 248: probe.val = ADC_GetConversion(probePin);
-"248
-[e = . _probe 0 ( _ADC_GetConversion (1 . `E5329 0 ]
-[; ;main.c: 249: switch (probe.val ) {
-"249
-[e $U 707  ]
-{
-[; ;main.c: 250: case 0:
-"250
-[e :U 708 ]
-"251
-[e :U 709 ]
-"252
-[e :U 710 ]
-[; ;main.c: 251: case 1:
-[; ;main.c: 252: case 2:
-[; ;main.c: 253: toneOn(SCALE_G6, NOTE_128TH);
-"253
-[e ( _toneOn (2 , . `E5384 30 . `E5366 12 ]
-[; ;main.c: 254: break;
-"254
-[e $U 706  ]
-[; ;main.c: 255: case 3:
-"255
-[e :U 711 ]
-[; ;main.c: 256: toneOn(SCALE_E6, NOTE_64TH);
-"256
-[e ( _toneOn (2 , . `E5384 27 . `E5366 10 ]
-[; ;main.c: 257: break;
-"257
-[e $U 706  ]
-[; ;main.c: 258: case 4:
-"258
-[e :U 712 ]
-[; ;main.c: 259: toneOn(SCALE_C6, NOTE_32TH);
-"259
-[e ( _toneOn (2 , . `E5384 24 . `E5366 8 ]
-[; ;main.c: 260: break;
-"260
-[e $U 706  ]
-[; ;main.c: 261: case 5:
-"261
-[e :U 713 ]
-[; ;main.c: 262: toneOn(SCALE_G5, NOTE_16TH);
-"262
-[e ( _toneOn (2 , . `E5384 19 . `E5366 6 ]
-[; ;main.c: 263: break;
-"263
-[e $U 706  ]
-[; ;main.c: 265: default:
-"265
-[e :U 714 ]
-[; ;main.c: 266: DSM_ManualModulationClear();;
-"266
-[e ( _DSM_ManualModulationClear ..  ]
-"267
-}
-[; ;main.c: 267: }
-[e $U 706  ]
-"249
-[e :U 707 ]
-[e [\ . _probe 0 , $ -> -> 0 `i `ui 708
- , $ -> -> 1 `i `ui 709
- , $ -> -> 2 `i `ui 710
- , $ -> -> 3 `i `ui 711
- , $ -> -> 4 `i `ui 712
- , $ -> -> 5 `i `ui 713
- 714 ]
-"267
-[e :U 706 ]
-"268
-}
-[e :U 686 ]
-"213
-[e $U 687  ]
-[e :U 688 ]
-[; ;main.c: 268: }
-[; ;main.c: 269: }
-"269
-[e :UE 660 ]
+[e :UE 673 ]
 }

@@ -161,6 +161,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _NCO1_Initialize `(v ~T0 @X0 0 ef ]
 "203 nco_melody.h
 [v _toneOn `(v ~T0 @X0 0 ef2`E5384`E5366 ]
+"174
+[v _wait_note `(v ~T0 @X0 0 ef1`E5366 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5800,10 +5802,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 184: PMD5bits.CLC1MD = PMD5bits.CLC2MD = 1;
 "184
 [e = . . _PMD5bits 0 1 = . . _PMD5bits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 187: {DAC1_SetOutput(0);_delay((unsigned long)((10)*(1000000/4000000.0)));PIR2bits.C1IF = 0;PIE2bits.C1IE = 1;};
+[; ;main.c: 187: {DAC1_SetOutput(1);_delay((unsigned long)((10)*(1000000/4000000.0)));PIR2bits.C1IF = 0;PIE2bits.C1IE = 1;};
 "187
 {
-[e ( _DAC1_SetOutput (1 -> -> 0 `i `uc ]
+[e ( _DAC1_SetOutput (1 -> -> 1 `i `uc ]
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 1000000 `l `d .4000000.0 `ul ]
 [e = . . _PIR2bits 0 3 -> -> 0 `i `uc ]
 [e = . . _PIE2bits 0 3 -> -> 1 `i `uc ]
@@ -5863,32 +5865,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 684 ]
 }
-[; ;main.c: 213: while (1) {
-"213
+[; ;main.c: 211: while (!FVR_IsOutputReady()) {
+"211
+[e $U 686  ]
 [e :U 687 ]
 {
-[; ;main.c: 214: DSM_ManualModulationClear();;
+[; ;main.c: 212: __nop();
+"212
+[e ( ___nop ..  ]
+[; ;main.c: 213: __nop();
+"213
+[e ( ___nop ..  ]
+[; ;main.c: 214: __nop();
 "214
-[e ( _DSM_ManualModulationClear ..  ]
-[; ;main.c: 215: {do { ODCONAbits.ODCA5 = 1; } while(0);do { LATAbits.LATA5 = 1; } while(0);};
+[e ( ___nop ..  ]
 "215
-{
-[e :U 691 ]
-{
-[e = . . _ODCONAbits 0 5 -> -> 1 `i `uc ]
 }
-[e :U 690 ]
-[e :U 694 ]
-{
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-}
-[e :U 693 ]
-}
-[; ;main.c: 216: if (!CMP1_GetOutputStatus())
-"216
-[e $ ! ! != -> ( _CMP1_GetOutputStatus ..  `i -> -> -> 0 `i `uc `i 695  ]
-[; ;main.c: 217: {
+[e :U 686 ]
+"211
+[e $ ! != -> ( _FVR_IsOutputReady ..  `i -> -> -> 0 `i `uc `i 687  ]
+[e :U 688 ]
+[; ;main.c: 215: }
+[; ;main.c: 217: while (1) {
 "217
+[e :U 690 ]
+{
+[; ;main.c: 218: DSM_ManualModulationClear();;
+"218
+[e ( _DSM_ManualModulationClear ..  ]
+[; ;main.c: 219: if (!CMP1_GetOutputStatus())
+"219
+[e $ ! ! != -> ( _CMP1_GetOutputStatus ..  `i -> -> -> 0 `i `uc `i 692  ]
+[; ;main.c: 220: {
+"220
 {
 [; ;main.c: 221: PMD1bits.NCOMD = 1;
 "221
@@ -5905,7 +5914,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [; ;main.c: 224: if (STATUSbits.nTO == 0)
 "224
-[e $ ! == -> . . _STATUSbits 0 4 `i -> 0 `i 696  ]
+[e $ ! == -> . . _STATUSbits 0 4 `i -> 0 `i 693  ]
 [; ;main.c: 225: {
 "225
 {
@@ -5914,137 +5923,160 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; <" reset ;# ">
 "231
 }
-[e :U 696 ]
+[e :U 693 ]
 [; ;main.c: 231: }
-[; ;main.c: 232: {do { ODCONAbits.ODCA5 = 0; } while(0); do { LATAbits.LATA5 = 1; } while(0);};
+[; ;main.c: 232: PMD0bits.FVRMD = 0;
 "232
-{
-[e :U 699 ]
-{
-[e = . . _ODCONAbits 0 5 -> -> 0 `i `uc ]
-}
-[e :U 698 ]
-[e :U 702 ]
-{
-[e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-}
-[e :U 701 ]
-}
-[; ;main.c: 233: PMD0bits.FVRMD = 0;
-"233
 [e = . . _PMD0bits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 234: FVR_Initialize();
-"234
+[; ;main.c: 233: FVR_Initialize();
+"233
 [e ( _FVR_Initialize ..  ]
-[; ;main.c: 235: PMD1bits.NCOMD = 0;
-"235
+[; ;main.c: 234: PMD1bits.NCOMD = 0;
+"234
 [e = . . _PMD1bits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 236: NCO1_Initialize();
-"236
+[; ;main.c: 235: NCO1_Initialize();
+"235
 [e ( _NCO1_Initialize ..  ]
-[; ;main.c: 237: while (!FVR_IsOutputReady()) {
 "237
-[e $U 703  ]
-[e :U 704 ]
-{
-[; ;main.c: 238: __nop();
-"238
-[e ( ___nop ..  ]
-[; ;main.c: 239: __nop();
-"239
-[e ( ___nop ..  ]
-[; ;main.c: 240: __nop();
-"240
-[e ( ___nop ..  ]
-"241
 }
-[e :U 703 ]
-"237
-[e $ ! != -> ( _FVR_IsOutputReady ..  `i -> -> -> 0 `i `uc `i 704  ]
-[e :U 705 ]
-"242
-}
-[e :U 695 ]
-[; ;main.c: 241: }
-[; ;main.c: 242: }
-[; ;main.c: 248: probe.val = ADC_GetConversion(probePin);
-"248
+[e :U 692 ]
+[; ;main.c: 237: }
+[; ;main.c: 243: probe.val = ADC_GetConversion(probePin);
+"243
 [e = . _probe 0 ( _ADC_GetConversion (1 . `E5329 0 ]
-[; ;main.c: 249: switch (probe.val ) {
-"249
-[e $U 707  ]
+[; ;main.c: 244: if (probe.val < 50)
+"244
+[e $ ! < . _probe 0 -> -> 50 `i `ui 694  ]
+[; ;main.c: 245: {
+"245
 {
-[; ;main.c: 250: case 0:
-"250
-[e :U 708 ]
-"251
-[e :U 709 ]
-"252
-[e :U 710 ]
-[; ;main.c: 251: case 1:
-[; ;main.c: 252: case 2:
-[; ;main.c: 253: toneOn(SCALE_G6, NOTE_128TH);
-"253
-[e ( _toneOn (2 , . `E5384 30 . `E5366 12 ]
-[; ;main.c: 254: break;
-"254
-[e $U 706  ]
-[; ;main.c: 255: case 3:
-"255
-[e :U 711 ]
-[; ;main.c: 256: toneOn(SCALE_E6, NOTE_64TH);
-"256
-[e ( _toneOn (2 , . `E5384 27 . `E5366 10 ]
-[; ;main.c: 257: break;
-"257
-[e $U 706  ]
-[; ;main.c: 258: case 4:
-"258
-[e :U 712 ]
-[; ;main.c: 259: toneOn(SCALE_C6, NOTE_32TH);
-"259
-[e ( _toneOn (2 , . `E5384 24 . `E5366 8 ]
-[; ;main.c: 260: break;
-"260
-[e $U 706  ]
-[; ;main.c: 261: case 5:
-"261
-[e :U 713 ]
-[; ;main.c: 262: toneOn(SCALE_G5, NOTE_16TH);
-"262
-[e ( _toneOn (2 , . `E5384 19 . `E5366 6 ]
-[; ;main.c: 263: break;
-"263
-[e $U 706  ]
-[; ;main.c: 265: default:
-"265
-[e :U 714 ]
-[; ;main.c: 266: DSM_ManualModulationClear();;
-"266
-[e ( _DSM_ManualModulationClear ..  ]
-"267
-}
-[; ;main.c: 267: }
-[e $U 706  ]
+[; ;main.c: 246: for (uint16_t i = 0; i < probe.val; i++) {
+"246
+{
+[v _i `ui ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `ui ]
+[e $U 698  ]
+[e :U 695 ]
+{
+[; ;main.c: 247: toneOn(SCALE_G6, NOTE_32TH);
+"247
+[e ( _toneOn (2 , . `E5384 30 . `E5366 8 ]
+[; ;main.c: 248: toneOn(SCALE_C6, NOTE_64TH);
+"248
+[e ( _toneOn (2 , . `E5384 24 . `E5366 10 ]
 "249
-[e :U 707 ]
-[e [\ . _probe 0 , $ -> -> 0 `i `ui 708
- , $ -> -> 1 `i `ui 709
- , $ -> -> 2 `i `ui 710
- , $ -> -> 3 `i `ui 711
- , $ -> -> 4 `i `ui 712
- , $ -> -> 5 `i `ui 713
- 714 ]
-"267
-[e :U 706 ]
-"268
 }
-[e :U 686 ]
-"213
-[e $U 687  ]
-[e :U 688 ]
-[; ;main.c: 268: }
-[; ;main.c: 269: }
-"269
+"246
+[e ++ _i -> -> 1 `i `ui ]
+[e :U 698 ]
+[e $ < _i . _probe 0 695  ]
+[e :U 696 ]
+"249
+}
+[; ;main.c: 249: }
+[; ;main.c: 250: {DSM_ManualModulationClear();;wait_note(NOTE_16TH);};
+"250
+{
+[e ( _DSM_ManualModulationClear ..  ]
+[e ( _wait_note (1 . `E5366 6 ]
+}
+"251
+}
+[e :U 694 ]
+[; ;main.c: 251: }
+[; ;main.c: 252: if (0)
+"252
+[e $ ! != -> 0 `i -> 0 `i 699  ]
+[; ;main.c: 253: {
+"253
+{
+[; ;main.c: 254: switch (probe.val ) {
+"254
+[e $U 701  ]
+{
+[; ;main.c: 255: case 0:
+"255
+[e :U 702 ]
+"256
+[e :U 703 ]
+"257
+[e :U 704 ]
+[; ;main.c: 256: case 1:
+[; ;main.c: 257: case 2:
+[; ;main.c: 258: toneOn(SCALE_G6, NOTE_64TH);
+"258
+[e ( _toneOn (2 , . `E5384 30 . `E5366 10 ]
+[; ;main.c: 259: break;
+"259
+[e $U 700  ]
+[; ;main.c: 260: case 3:
+"260
+[e :U 705 ]
+[; ;main.c: 261: toneOn(SCALE_E6, NOTE_64TH);
+"261
+[e ( _toneOn (2 , . `E5384 27 . `E5366 10 ]
+[; ;main.c: 262: break;
+"262
+[e $U 700  ]
+[; ;main.c: 263: case 4:
+"263
+[e :U 706 ]
+[; ;main.c: 264: toneOn(SCALE_C6, NOTE_64TH);
+"264
+[e ( _toneOn (2 , . `E5384 24 . `E5366 10 ]
+[; ;main.c: 265: break;
+"265
+[e $U 700  ]
+[; ;main.c: 266: case 5:
+"266
+[e :U 707 ]
+"267
+[e :U 708 ]
+"268
+[e :U 709 ]
+[; ;main.c: 267: case 6:
+[; ;main.c: 268: case 7:
+[; ;main.c: 270: toneOn(SCALE_G5, NOTE_64TH);
+"270
+[e ( _toneOn (2 , . `E5384 19 . `E5366 10 ]
+[; ;main.c: 271: break;
+"271
+[e $U 700  ]
+[; ;main.c: 273: default:
+"273
+[e :U 710 ]
+[; ;main.c: 274: DSM_ManualModulationClear();;
+"274
+[e ( _DSM_ManualModulationClear ..  ]
+"275
+}
+[; ;main.c: 275: }
+[e $U 700  ]
+"254
+[e :U 701 ]
+[e [\ . _probe 0 , $ -> -> 0 `i `ui 702
+ , $ -> -> 1 `i `ui 703
+ , $ -> -> 2 `i `ui 704
+ , $ -> -> 3 `i `ui 705
+ , $ -> -> 4 `i `ui 706
+ , $ -> -> 5 `i `ui 707
+ , $ -> -> 6 `i `ui 708
+ , $ -> -> 7 `i `ui 709
+ 710 ]
+"275
+[e :U 700 ]
+"276
+}
+[e :U 699 ]
+"277
+}
+[e :U 689 ]
+"217
+[e $U 690  ]
+[e :U 691 ]
+[; ;main.c: 276: }
+[; ;main.c: 277: }
+[; ;main.c: 278: }
+"278
 [e :UE 660 ]
 }

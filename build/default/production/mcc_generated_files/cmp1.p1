@@ -5131,9 +5131,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;cmp1.c: 67: CM1CON0 = 0x80;
 "67
 [e = _CM1CON0 -> -> 128 `i `uc ]
-[; ;cmp1.c: 70: CM1CON1 = 0x69;
+[; ;cmp1.c: 70: CM1CON1 = 0xA9;
 "70
-[e = _CM1CON1 -> -> 105 `i `uc ]
+[e = _CM1CON1 -> -> 169 `i `uc ]
 [; ;cmp1.c: 73: PIR2bits.C1IF = 0;
 "73
 [e = . . _PIR2bits 0 3 -> -> 0 `i `uc ]

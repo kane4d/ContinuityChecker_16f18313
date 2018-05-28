@@ -68,7 +68,7 @@ volatile struct {
 // Battery ADC Level
 #define BATT_ADC_LEVEL_LOW  (600u)  /* 2.4V */
 #define BATT_ADC_LEVEL_STOP (550u)  /* 2.2V */
-#define PROBE_ISR_ON() {DAC1_SetOutput(1);__delay_us(10);PIR2bits.C1IF = 0;PIE2bits.C1IE = 1;}
+#define PROBE_ISR_ON() {DAC1_SetOutput(0);__delay_us(10);PIR2bits.C1IF = 0;PIE2bits.C1IE = 1;}
 #define PROBE_ISR_OFF() {PIE2bits.C1IE = 0;}
 #define PROBE_PWR_ON() {probePwr_SetPushPull(); probePwr_SetHigh();}
 #define PROBE_PWR_OFF() {probePwr_SetOpenDrain();probePwr_SetHigh();}
@@ -159,7 +159,7 @@ void main(void) {
     // PMDレジスタに16進数で直接値を代入する自信がないので、ここでは各bitに直接値を代入している。
     // CLKRMD CLKR enabled; SYSCMD SYSCLK enabled; FVRMD FVR disabled; IOCMD IOC enabled; NVMMD NVM enabled; 
     // PMD0 = 0x40;
-    // FVR 74uA この消費電力はデカい
+    // FVR 25uA この消費電力はデカい
     PMD0bits.FVRMD = 1;
     // TMR0MD TMR0 disabled; TMR1MD TMR1 disabled; TMR2MD TMR2 disabled; NCOMD DDS(NCO) disabled; 
     // PMD1 = 0x87;
@@ -168,7 +168,7 @@ void main(void) {
     // DACMD DAC enabled; CMP1MD CMP1 enabled; ADCMD ADC disabled; 
     // PMD2 = 0x20;
     // CMP1 30uA
-    PMD2bits.CMP1MD = 0;　// On
+    PMD2bits.CMP1MD = 0; // On
     PMD2bits.ADCMD = 1;
     // CCP2MD CCP2 disabled; CCP1MD CCP1 disabled; PWM6MD PWM6 disabled; PWM5MD PWM5 disabled; CWG1MD CWG1 disabled; 
     // PMD3 = 0x73;
@@ -193,6 +193,12 @@ void main(void) {
     // PMDで周辺機器を休止してるので、初期化処理を再実行
     SYSTEM_Initialize();
     WDT_ON();
+    PMD1bits.TMR0MD = PMD1bits.TMR1MD = PMD1bits.TMR2MD = 1;
+    PMD3bits.CCP2MD = PMD3bits.CCP1MD = 1;
+    PMD3bits.PWM6MD = PMD3bits.PWM5MD = 1;
+    PMD3bits.CWG1MD = 1;
+    PMD4bits.MSSP1MD = PMD4bits.UART1MD = 1;
+    PMD5bits.CLC1MD = PMD5bits.CLC2MD = 1;
     
     // 旧国民機の起動音再生
     playMelody_pc98_pipo();
@@ -202,17 +208,19 @@ void main(void) {
 
     // FVRの立ち上がり待ち
     // 恐らく不要な処理
-    while (!FVR_IsOutputReady()) {
-        NOP();
-        NOP();
-        NOP();
-    }
     
+
     while (1) {
         toneOff();
-        if (CMP1_GetOutputStatus())
+        PROBE_PWR_OFF();
+        if (!CMP1_GetOutputStatus())
         {   // 省電力化のためにCMP1の値が下がるまでSLEEPしてADCへ行かない。
-            LIGHT_SLEEP();
+            // この省電力化のおかげでリセットの必要性が無くなってしまった。
+            // しかし、国民機の起動音は捨てがたい。
+            // 起動音があるとメリハリがあるので、WDTリセットを残す。
+            PMD1bits.NCOMD = 1;// -70uA
+            PMD0bits.FVRMD = 1;// -25uA
+            DEEP_SLEEP();
             if (STATUSbits.nTO == 0)
             {
                 // http://ww1.microchip.com/downloads/en/DeviceDoc/PIC16(L)F1831318323%20Full%20Featured%20Low%20Pin%20Count%20Microcontrollers%20with%20XLP_40001799D.pdf
@@ -220,6 +228,16 @@ void main(void) {
                 // WDT wakeup from sleep
                 // nTO == 0, nPD ==0
                 RESET();
+            }
+            PROBE_PWR_ON();
+            PMD0bits.FVRMD = 0;
+            FVR_Initialize();
+            PMD1bits.NCOMD = 0;
+            NCO1_Initialize();
+            while (!FVR_IsOutputReady()) {
+                NOP();
+                NOP();
+                NOP();
             }
         }
         // ADCの値により音程を変化させている。
@@ -232,17 +250,16 @@ void main(void) {
             case 0: // 
             case 1: // 
             case 2: // 
-                toneOn(SCALE_G6, NOTE_64TH);
+                toneOn(SCALE_G6, NOTE_128TH);
                 break;
             case 3: // 
                 toneOn(SCALE_E6, NOTE_64TH);
                 break;
             case 4: // 
-                toneOn(SCALE_C6, NOTE_64TH);
+                toneOn(SCALE_C6, NOTE_32TH);
                 break;
-            case 5: //
-                //CLRWDT();
-                toneOn(SCALE_G5, NOTE_64TH);
+            case 5: // 20ohm
+                toneOn(SCALE_G5, NOTE_16TH);
                 break;
 
             default:

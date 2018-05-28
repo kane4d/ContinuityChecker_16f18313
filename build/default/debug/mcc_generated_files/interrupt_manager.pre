@@ -1,32 +1,8 @@
 
-# 1 "mcc_generated_files/mcc.c"
+# 1 "mcc_generated_files/interrupt_manager.c"
 
-
-# 49
-#pragma config FEXTOSC = OFF
-#pragma config RSTOSC = HFINT1
-#pragma config CLKOUTEN = OFF
-#pragma config CSWEN = ON
-#pragma config FCMEN = ON
-
-
-#pragma config MCLRE = OFF
-#pragma config PWRTE = OFF
-#pragma config WDTE = SWDTEN
-#pragma config LPBOREN = OFF
-#pragma config BOREN = OFF
-#pragma config BORV = LOW
-#pragma config PPS1WAY = ON
-#pragma config STVREN = ON
-#pragma config DEBUG = OFF
-
-
-#pragma config WRT = OFF
-#pragma config LVP = OFF
-
-
-#pragma config CP = OFF
-#pragma config CPD = OFF
+# 108 "mcc_generated_files/interrupt_manager.h"
+void interrupt INTERRUPT_InterruptManager(void);
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -6812,9 +6788,6 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
 typedef unsigned char bool;
 
-# 108 "mcc_generated_files/interrupt_manager.h"
-void interrupt INTERRUPT_InterruptManager(void);
-
 # 91 "mcc_generated_files/cmp1.h"
 void CMP1_Initialize(void);
 
@@ -6928,55 +6901,28 @@ void WDT_Initialize(void);
 # 113
 void PMD_Initialize(void);
 
-# 77 "mcc_generated_files/mcc.c"
-void SYSTEM_Initialize(void)
+# 51 "mcc_generated_files/interrupt_manager.c"
+void interrupt INTERRUPT_InterruptManager (void)
 {
 
-PMD_Initialize();
-PIN_MANAGER_Initialize();
-OSCILLATOR_Initialize();
-WDT_Initialize();
-FVR_Initialize();
-CMP1_Initialize();
-ADC_Initialize();
-NCO1_Initialize();
-DAC1_Initialize();
-DSM_Initialize();
+if(PIE0bits.IOCIE == 1 && PIR0bits.IOCIF == 1)
+{
+PIN_MANAGER_IOC();
 }
-
-void OSCILLATOR_Initialize(void)
+else if(INTCONbits.PEIE == 1)
 {
-
-OSCCON1 = 0x60;
-
-OSCCON3 = 0x00;
-
-OSCEN = 0x00;
-
-OSCFRQ = 0x00;
-
-OSCTUNE = 0x20;
+if(PIE2bits.C1IE == 1 && PIR2bits.C1IF == 1)
+{
+CMP1_ISR();
 }
-
-void WDT_Initialize(void)
+else
 {
 
-WDTCON = 0x1C;
 }
-
-void PMD_Initialize(void)
+}
+else
 {
 
-PMD0 = 0x00;
-
-PMD1 = 0x00;
-
-PMD2 = 0x00;
-
-PMD3 = 0x00;
-
-PMD4 = 0x00;
-
-PMD5 = 0x00;
+}
 }
 

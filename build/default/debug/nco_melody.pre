@@ -1,32 +1,5 @@
 
-# 1 "mcc_generated_files/mcc.c"
-
-
-# 49
-#pragma config FEXTOSC = OFF
-#pragma config RSTOSC = HFINT1
-#pragma config CLKOUTEN = OFF
-#pragma config CSWEN = ON
-#pragma config FCMEN = ON
-
-
-#pragma config MCLRE = OFF
-#pragma config PWRTE = OFF
-#pragma config WDTE = SWDTEN
-#pragma config LPBOREN = OFF
-#pragma config BOREN = OFF
-#pragma config BORV = LOW
-#pragma config PPS1WAY = ON
-#pragma config STVREN = ON
-#pragma config DEBUG = OFF
-
-
-#pragma config WRT = OFF
-#pragma config LVP = OFF
-
-
-#pragma config CP = OFF
-#pragma config CPD = OFF
+# 1 "nco_melody.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -6928,55 +6901,201 @@ void WDT_Initialize(void);
 # 113
 void PMD_Initialize(void);
 
-# 77 "mcc_generated_files/mcc.c"
-void SYSTEM_Initialize(void)
-{
+# 103 "nco_melody.h"
+typedef enum {
+NOTE_WHOLE = 2400u,
+NOTE_HALF = 1200u,
+NOTE_QUOTER = 600u,
+NOTE_HALF_ = NOTE_HALF + NOTE_QUOTER,
+NOTE_8TH = 300u,
+NOTE_QUOTER_ = NOTE_QUOTER + NOTE_8TH,
+NOTE_16TH = 150u,
+NOTE_8TH_ = NOTE_8TH + NOTE_16TH,
+NOTE_32TH = 75u,
+NOTE_16TH_ = NOTE_16TH + NOTE_32TH,
+NOTE_64TH = 38u,
+NOTE_32TH_ = NOTE_32TH + NOTE_64TH,
+NOTE_128TH = 19u,
+NOTE_64TH_ = NOTE_64TH + NOTE_128TH,
+NOTE_MUTE = 10u,
+NOTE_2ms = 2u
+} notes_t;
 
-PMD_Initialize();
-PIN_MANAGER_Initialize();
-OSCILLATOR_Initialize();
-WDT_Initialize();
-FVR_Initialize();
-CMP1_Initialize();
-ADC_Initialize();
-NCO1_Initialize();
-DAC1_Initialize();
-DSM_Initialize();
+# 134
+typedef enum {
+SCALE_C4 = 0,
+SCALE_C4s,
+SCALE_D4,
+SCALE_D4s,
+SCALE_E4,
+SCALE_F4,
+SCALE_F4s,
+SCALE_G4,
+SCALE_G4s,
+SCALE_A4,
+SCALE_A4s,
+SCALE_B4,
+SCALE_C5,
+SCALE_C5s,
+SCALE_D5,
+SCALE_D5s,
+SCALE_E5,
+SCALE_F5,
+SCALE_F5s,
+SCALE_G5,
+SCALE_G5s,
+SCALE_A5,
+SCALE_A5s,
+SCALE_B5,
+SCALE_C6,
+SCALE_D6,
+SCALE_D6s,
+SCALE_E6,
+SCALE_F6,
+SCALE_F6s,
+SCALE_G6,
+SCALE_G6s,
+SCALE_A6,
+SCALE_A6s,
+SCALE_B6,
+SCALE_MUTE,
+SizeOf_scales
+} scales_t;
+
+void wait_note(notes_t len);
+
+# 190
+void wait_note(notes_t len);
+
+typedef struct {
+scales_t scale;
+notes_t note;
+} tones_t;
+
+# 203
+void toneOn(scales_t t, notes_t len);
+
+# 211
+void playMelody(const tones_t* melody, uint16_t len);
+
+# 218
+void playMelody_fullScale(notes_t len);
+
+# 224
+const tones_t melodyData_lowBatt[] = {
+{SCALE_E4, (NOTE_8TH)},
+{SCALE_C4, (NOTE_QUOTER)},
+{SCALE_MUTE, (NOTE_8TH)},
+{SCALE_E4, (NOTE_8TH)},
+{SCALE_C4, (NOTE_QUOTER)},
+{SCALE_MUTE, (NOTE_8TH)},
+{SCALE_E4, (NOTE_8TH)},
+{SCALE_C4, (NOTE_QUOTER)},
+{SCALE_MUTE, (NOTE_8TH)},
+};
+
+# 245
+const tones_t melodyData_test[] = {
+{SCALE_C4, (NOTE_8TH)},
+{SCALE_E4, (NOTE_8TH)},
+{SCALE_G4, (NOTE_QUOTER)},
+{SCALE_MUTE, (NOTE_8TH)},
+{SCALE_C5, (NOTE_8TH)},
+{SCALE_E5, (NOTE_8TH)},
+{SCALE_G5, (NOTE_8TH)},
+{SCALE_C6, (NOTE_QUOTER)},
+};
+
+# 261
+const tones_t melodyData_halt[] = {
+{SCALE_C4, (NOTE_QUOTER)},
+{SCALE_MUTE, (NOTE_8TH)},
+{SCALE_C4, (NOTE_QUOTER)},
+{SCALE_MUTE, (NOTE_8TH)},
+{SCALE_C4, (NOTE_QUOTER)},
+};
+
+# 274
+const tones_t melodyData_sleep[] = {
+{SCALE_E4, NOTE_QUOTER_},
+{SCALE_E4, NOTE_8TH},
+{SCALE_G4, NOTE_HALF},
+{SCALE_D4, NOTE_QUOTER_},
+{SCALE_E4, NOTE_8TH},
+{SCALE_F4, NOTE_HALF},
+};
+
+# 292
+const tones_t melodyData_charumera[] = {
+{SCALE_A4, NOTE_QUOTER},
+{SCALE_B4, NOTE_QUOTER},
+{SCALE_C5s, NOTE_HALF},
+{SCALE_B4, NOTE_QUOTER},
+{SCALE_A4, NOTE_QUOTER},
+
+{SCALE_MUTE, NOTE_WHOLE},
+
+{SCALE_A4, NOTE_QUOTER},
+{SCALE_B4, NOTE_QUOTER},
+{SCALE_C5s, NOTE_QUOTER},
+{SCALE_B4, NOTE_QUOTER},
+{SCALE_A4, NOTE_QUOTER},
+{SCALE_B4, NOTE_HALF},
+{SCALE_MUTE, NOTE_WHOLE},
+};
+
+# 320
+void playMelody_pc98_pipo(void);
+
+# 12 "nco_melody.c"
+void wait_note(notes_t len) {
+do {
+_delay((unsigned long)(((500u))*(1000000/4000000.0)));
+} while (--len);
+
 }
 
-void OSCILLATOR_Initialize(void)
-{
+void toneOn(scales_t t, notes_t len) {
 
-OSCCON1 = 0x60;
-
-OSCCON3 = 0x00;
-
-OSCEN = 0x00;
-
-OSCFRQ = 0x00;
-
-OSCTUNE = 0x20;
+# 26
+static const uint16_t scale_param16[] = {549 , 581, 616, 652, 691, 732, 776, 822, 871, 923, 978, 1036 };
+DSM_ManualModulationClear();;
+asm("clrwdt");
+wait_note(NOTE_128TH);
+if (t < SCALE_MUTE) {
+if (t >= SCALE_C6) {
+{NCO1INCH = scale_param16[ t - SCALE_C6 ] << 2 >> 8 ;NCO1INCL = scale_param16[ t - SCALE_C6 ] << 2 & 0x00ff;};
+} else if (t >= SCALE_C5) {
+{NCO1INCH = scale_param16[ t - SCALE_C5 ] << 1 >> 8 ;NCO1INCL = scale_param16[ t - SCALE_C5 ] << 1 & 0x00ff;};
+} else {
+{NCO1INCH = scale_param16[ t ] >> 8 ;NCO1INCL = scale_param16[ t ] & 0x00ff;};
+}
+DSM_ManualModulationSet();
+}
+wait_note(len);
 }
 
-void WDT_Initialize(void)
-{
-
-WDTCON = 0x1C;
+void playMelody(const tones_t* melody, uint16_t len) {
+for (uint16_t i = 0; i < len; i++) {
+toneOn(melody[i].scale, melody[i].note);
+}
+DSM_ManualModulationClear();;
 }
 
-void PMD_Initialize(void)
-{
-
-PMD0 = 0x00;
-
-PMD1 = 0x00;
-
-PMD2 = 0x00;
-
-PMD3 = 0x00;
-
-PMD4 = 0x00;
-
-PMD5 = 0x00;
+void playMelody_fullScale(notes_t len) {
+for (uint16_t i = 0; i < SizeOf_scales - 1; i++) {
+toneOn(i, len);
+}
 }
 
+void playMelody_pc98_pipo() {
+DSM_ManualModulationClear();;
+DSM_ManualModulationSet();
+{NCO1INCH = ( 4194u ) >> 8 ;NCO1INCL = ( 4194u ) & 0x00ff;};
+wait_note(NOTE_16TH_);
+{DSM_ManualModulationClear();;wait_note(NOTE_128TH);};
+DSM_ManualModulationSet();
+{NCO1INCH = ( 2097u ) >> 8 ;NCO1INCL = ( 2097u ) & 0x00ff;};
+wait_note(NOTE_8TH_);
+DSM_ManualModulationClear();;
+}

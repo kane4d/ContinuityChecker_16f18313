@@ -444,7 +444,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="CONFIG2" settingAlias="WDTE"/>
-         <value>SLEEP</value>
+         <value>SWDTEN</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="RA1PPS" settingAlias="RA1PPS"/>
@@ -1024,7 +1024,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CMP1" registerAlias="CMCON1" settingAlias="CINTN"/>
-         <value>intFlag_neg</value>
+         <value>no_intFlag</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DSM" registerAlias="MDSRC" settingAlias="MDMS" alias="CCP1_out"/>
@@ -1108,7 +1108,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CMP1" registerAlias="CMCON1" settingAlias="CINTP"/>
-         <value>no_intFlag</value>
+         <value>intFlag_pos</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="CONFIG1" settingAlias="RSTOSC" alias="EXT1X"/>
@@ -2124,7 +2124,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CMP1" registerAlias="CMCON1"/>
-         <value>105</value>
+         <value>169</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="DAC1" name="refNegRef"/>
@@ -2824,7 +2824,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="System Module" registerAlias="CONFIG2"/>
-         <value>14890</value>
+         <value>14886</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="CONFIG2" settingAlias="PPS1WAY" alias="OFF"/>
@@ -3754,7 +3754,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.c</file>
-         <hash>7b30b8e01d500abf1e6248090ba9763272d281b9dbc4764e6972537333722eea</hash>
+         <hash>180e73cab93589a2d9e906577d46fe1b1ede142ed8c6c57c287252b0aa4b10bb</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\memory.h</file>
@@ -3762,7 +3762,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\cmp1.c</file>
-         <hash>2c55c46b4ee0bdc4f8eb86ddf323e670fd64c04d019ce5691fe55e4dc5aced88</hash>
+         <hash>443f66748f21713f7ef9d6cd0de9235ed0bedafdb4b919a0d33944112cf7a406</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>

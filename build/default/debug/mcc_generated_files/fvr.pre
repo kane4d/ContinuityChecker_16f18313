@@ -1,32 +1,5 @@
 
-# 1 "mcc_generated_files/mcc.c"
-
-
-# 49
-#pragma config FEXTOSC = OFF
-#pragma config RSTOSC = HFINT1
-#pragma config CLKOUTEN = OFF
-#pragma config CSWEN = ON
-#pragma config FCMEN = ON
-
-
-#pragma config MCLRE = OFF
-#pragma config PWRTE = OFF
-#pragma config WDTE = SWDTEN
-#pragma config LPBOREN = OFF
-#pragma config BOREN = OFF
-#pragma config BORV = LOW
-#pragma config PPS1WAY = ON
-#pragma config STVREN = ON
-#pragma config DEBUG = OFF
-
-
-#pragma config WRT = OFF
-#pragma config LVP = OFF
-
-
-#pragma config CP = OFF
-#pragma config CPD = OFF
+# 1 "mcc_generated_files/fvr.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -6701,23 +6674,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 171 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-
-# 183
-void PIN_MANAGER_IOC(void);
-
-# 196
-void IOCAF3_ISR(void);
-
-# 219
-void IOCAF3_SetInterruptHandler(void (* InterruptHandler)(void));
-
-# 243
-extern void (*IOCAF3_InterruptHandler)(void);
-
-# 267
-void IOCAF3_DefaultInterruptHandler(void);
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
+typedef unsigned char bool;
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdint.h"
 typedef signed char int8_t;
@@ -6809,174 +6767,21 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\stdbool.h"
-typedef unsigned char bool;
-
-# 108 "mcc_generated_files/interrupt_manager.h"
-void interrupt INTERRUPT_InterruptManager(void);
-
-# 91 "mcc_generated_files/cmp1.h"
-void CMP1_Initialize(void);
-
-# 131
-bool CMP1_GetOutputStatus(void);
-
-# 147
-void CMP1_ISR(void);
-
 # 92 "mcc_generated_files/fvr.h"
 void FVR_Initialize(void);
 
 # 126
 bool FVR_IsOutputReady(void);
 
-# 92 "mcc_generated_files/nco1.h"
-void NCO1_Initialize(void);
-
-# 127
-bool NCO1_GetOutputStatus(void);
-
-# 92 "mcc_generated_files/dac1.h"
-void DAC1_Initialize(void);
-
-# 128
-void DAC1_SetOutput(uint8_t inputData);
-
-# 98 "mcc_generated_files/memory.h"
-uint16_t FLASH_ReadWord(uint16_t flashAddr);
-
-# 127
-void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
-
-# 163
-int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-
-# 188
-void FLASH_EraseBlock(uint16_t startAddr);
-
-# 221
-void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData);
-
-# 247
-uint8_t DATAEE_ReadByte(uint16_t bAdd);
-
-# 71 "mcc_generated_files/adc.h"
-typedef uint16_t adc_result_t;
-
-# 76
-typedef struct
-{
-adc_result_t adcResult1;
-adc_result_t adcResult2;
-} adc_sync_double_result_t;
-
-# 94
-typedef enum
-{
-probePin = 0x4,
-channel_AVSS = 0x3C,
-channel_Temp = 0x3D,
-channel_DAC1 = 0x3E,
-channel_FVR = 0x3F
-} adc_channel_t;
-
-# 136
-void ADC_Initialize(void);
-
-# 166
-void ADC_SelectChannel(adc_channel_t channel);
-
-# 193
-void ADC_StartConversion();
-
-# 225
-bool ADC_IsConversionDone();
-
-# 258
-adc_result_t ADC_GetConversionResult(void);
-
-# 288
-adc_result_t ADC_GetConversion(adc_channel_t channel);
-
-# 90 "mcc_generated_files/dsm.h"
-void DSM_Initialize(void);
-
-# 115
-void DSM_ManualModulationSet (void);
-
-# 140
-void DSM_ManualModulationClear (void);
-
-# 164
-void DSM_ManualModulationToggle (void);
-
-# 189
-void DSM_ModulationStart (void);
-
-# 216
-void DSM_ModulationStop (void);
-
-# 75 "mcc_generated_files/mcc.h"
-void SYSTEM_Initialize(void);
-
-# 88
-void OSCILLATOR_Initialize(void);
-
-# 101
-void WDT_Initialize(void);
-
-# 113
-void PMD_Initialize(void);
-
-# 77 "mcc_generated_files/mcc.c"
-void SYSTEM_Initialize(void)
+# 57 "mcc_generated_files/fvr.c"
+void FVR_Initialize(void)
 {
 
-PMD_Initialize();
-PIN_MANAGER_Initialize();
-OSCILLATOR_Initialize();
-WDT_Initialize();
-FVR_Initialize();
-CMP1_Initialize();
-ADC_Initialize();
-NCO1_Initialize();
-DAC1_Initialize();
-DSM_Initialize();
+FVRCON = 0x81;
 }
 
-void OSCILLATOR_Initialize(void)
+bool FVR_IsOutputReady(void)
 {
-
-OSCCON1 = 0x60;
-
-OSCCON3 = 0x00;
-
-OSCEN = 0x00;
-
-OSCFRQ = 0x00;
-
-OSCTUNE = 0x20;
-}
-
-void WDT_Initialize(void)
-{
-
-WDTCON = 0x1C;
-}
-
-void PMD_Initialize(void)
-{
-
-PMD0 = 0x00;
-
-PMD1 = 0x00;
-
-PMD2 = 0x00;
-
-PMD3 = 0x00;
-
-PMD4 = 0x00;
-
-PMD5 = 0x00;
+return (FVRCONbits.FVRRDY);
 }
 

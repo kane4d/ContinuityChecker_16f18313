@@ -55,7 +55,7 @@
 // CONFIG2
 #pragma config MCLRE = OFF    // Master Clear Enable bit->MCLR/VPP pin function is digital input; MCLR internally disabled; Weak pull-up under control of port pin's WPU control bit.
 #pragma config PWRTE = OFF    // Power-up Timer Enable bit->PWRT disabled
-#pragma config WDTE = SLEEP    // Watchdog Timer Enable bits->WDT enabled while running and disabled while in SLEEP/IDLE; SWDTEN is ignored
+#pragma config WDTE = SWDTEN    // Watchdog Timer Enable bits->WDT controlled by the SWDTEN bit in the WDTCON register
 #pragma config LPBOREN = OFF    // Low-power BOR enable bit->ULPBOR disabled
 #pragma config BOREN = OFF    // Brown-out Reset Enable bits->Brown-out Reset disabled
 #pragma config BORV = LOW    // Brown-out Reset Voltage selection bit->Brown-out voltage (Vbor) set to 2.45V
