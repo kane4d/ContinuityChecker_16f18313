@@ -84,7 +84,7 @@ extern "C" {
      * @brief 音程をNCOに設定する
      * @param[in] x 音程
      */
-#define setScale(x) {NCO1INCH = x >> 8 ;NCO1INCL = x & 0x00ff;}
+#define setScale(x) {NCO1INC = x;}
     /**
      * @brief 指定時間消音する
      * @param[in] x 長さ mSec
